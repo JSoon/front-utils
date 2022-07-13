@@ -1,6 +1,6 @@
 {
-  "name": "rtfc-utils",
-  "private": true,
+  "name": "@front-utils/rtfc-utils",
+  "private": false,
   "version": "1.0.0",
   "main": "dist/rtfc_utils.es.js",
   "scripts": {
@@ -28,5 +28,20 @@
     "ts-node": "^10.8.2",
     "typescript": "^4.5.4",
     "vite": "^2.9.9"
-  }
+  },
+  "publishConfig": {
+    "registry": "http://10.0.60.84:4873"
+  },
+  "description": "工具类函数: 与业务无关，包括且不限于：公共方法、正则表达式等工具类API",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.jwell56.com/front-utils/rtfc-utils.git"
+  },
+  "keywords": [
+    "utils",
+    "library"
+  ],
+  "author": "sunjing",
+  "license": "ISC"
 }
