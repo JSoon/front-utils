@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./", // this must be specified if "paths" is specified.
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    // Mocha will not work without "module": "commonjs"
+    // "module": "commonjs",
+    "lib": ["esnext", "dom"],
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
