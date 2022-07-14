@@ -1,11 +1,12 @@
 import { assert } from 'chai'
-import { checkEmail } from '../lib/validator'
+import { checkEmail, checkNumberPlate } from '../lib/validator'
 
-/**
- * 测试用例参考自chromium
- * @see {@link https://cs.chromium.org/chromium/src/third_party/blink/web_tests/fast/forms/resources/ValidityState-typeMismatch-email.js?q=ValidityState-typeMismatch-email.js&sq=package:chromium&dr}
- */
 suite('validator.ts', function () {
+  /**
+   * 邮箱地址测试
+   * @description 邮箱测试用例参考自chromium
+   * @see {@link https://cs.chromium.org/chromium/src/third_party/blink/web_tests/fast/forms/resources/ValidityState-typeMismatch-email.js?q=ValidityState-typeMismatch-email.js&sq=package:chromium&dr}
+   */
   suite('#checkEmail()', function () {
     test('Should return true', function () {
       assert.equal(checkEmail('something@something.com'), true)
@@ -51,6 +52,24 @@ suite('validator.ts', function () {
       assert.equal(checkEmail('someone@do-.com'), false)
       assert.equal(checkEmail('somebody@-p.com'), false)
       assert.equal(checkEmail('somebody@-.com'), false)
+    })
+  })
+
+  /**
+   * 车牌号码测试
+   */
+  suite('#checkNumberPlate()', function () {
+    test('Should return true', function () {
+      assert.equal(checkNumberPlate('川A123AB'), true)
+      assert.equal(checkNumberPlate('川A2222学'), true)
+      assert.equal(checkNumberPlate('川AF12345'), true)
+      assert.equal(checkNumberPlate('川A12345D'), true)
+    })
+    test('Should return false', function () {
+      assert.equal(checkNumberPlate('川A123456'), false)
+      assert.equal(checkNumberPlate('川A2222i'), false)
+      assert.equal(checkNumberPlate('川AL12345'), false)
+      assert.equal(checkNumberPlate('川AD123456'), false)
     })
   })
 })

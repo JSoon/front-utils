@@ -2,7 +2,7 @@
  * 验证器
  */
 
-import { emailExp } from "./regexp"
+import { emailExp, newEnergyNumberPlateExp, normalNumberPlateExp } from "./regexp"
 
 /**
  * 校验电子邮箱地址是否合法
@@ -19,4 +19,21 @@ export function checkEmail (email: string): boolean {
   // return typeof input.checkValidity === 'function' ? input.checkValidity() : emailExp.test(email)
 
   return emailExp.test(email)
+}
+
+/**
+ * 校验车牌号码是否合法
+ * @param numberPlate 车牌号码
+ * @returns 
+ */
+export function checkNumberPlate (numberPlate: string): boolean {
+  if (numberPlate.length !== 7 && numberPlate.length !== 8) {
+    return false
+  }
+  // 常规燃油车牌
+  if (numberPlate.length === 7) {
+    return normalNumberPlateExp.test(numberPlate)
+  }
+  // 新能源车牌
+  return newEnergyNumberPlateExp.test(numberPlate)
 }
