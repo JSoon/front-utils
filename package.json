@@ -3,9 +3,10 @@
   "private": false,
   "version": "1.0.0",
   "main": "dist/rtfc_utils.es.js",
+  "types": "types/main.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && babel dist --out-dir dist",
+    "build": "sh build.sh",
     "preview": "vite preview",
     "test": "mocha",
     "reporter": "open mochawesome-report/mochawesome.html"
