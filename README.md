@@ -11,6 +11,7 @@
     - [Browser](#browser)
     - [ES Module](#es-module)
   - [API](#api)
+  - [Test](#test)
   - [Compabilities](#compabilities)
     - [Runtime Environment](#runtime-environment)
     - [Browser Support](#browser-support)
@@ -69,6 +70,16 @@ regexp.emailExp.test('a.b@qq.com')
 
 ```js
 validator.checkEmail('a.b@qq.com')
+```
+
+## Test
+
+```bash
+# 单元测试
+pnpm test
+
+# 打开测试报告
+pnpm reporter
 ```
 
 ## Compabilities
