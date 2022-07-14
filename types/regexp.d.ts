@@ -9,3 +9,4 @@
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#basic_validation}
  */
 export declare const emailExp: RegExp;
+//# sourceMappingURL=regexp.d.ts.map

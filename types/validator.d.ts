@@ -7,3 +7,4 @@
  * @returns
  */
 export declare function checkEmail(email: string): boolean;
+//# sourceMappingURL=validator.d.ts.map
