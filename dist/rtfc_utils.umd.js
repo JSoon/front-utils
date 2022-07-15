@@ -4,39 +4,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-(function (e, n) {
-  (typeof exports === "undefined" ? "undefined" : _typeof(exports)) == "object" && typeof module != "undefined" ? n(exports) : typeof define == "function" && define.amd ? define(["exports"], n) : (e = typeof globalThis != "undefined" ? globalThis : e || self, n(e.rtfc_utils = {}));
-})(void 0, function (e) {
+(function (t, n) {
+  (typeof exports === "undefined" ? "undefined" : _typeof(exports)) == "object" && typeof module != "undefined" ? n(exports) : typeof define == "function" && define.amd ? define(["exports"], n) : (t = typeof globalThis != "undefined" ? globalThis : t || self, n(t.rtfc_utils = {}));
+})(void 0, function (t) {
   "use strict";
 
   var n = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-      r = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]$/,
-      o = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DABCEFGHJK])|([DABCEFGHJK][A-HJ-NP-Z0-9][0-9]{4}))$/;
-  var l = Object.freeze(Object.defineProperty({
+      o = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]$/,
+      l = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DABCEFGHJK])|([DABCEFGHJK][A-HJ-NP-Z0-9][0-9]{4}))$/,
+      i = /^(\+86)?1\d{10}$/;
+  var r = Object.freeze(Object.defineProperty({
     __proto__: null,
-    emailExp: n,
-    normalNumberPlateExp: r,
-    newEnergyNumberPlateExp: o
+    emailRegExp: n,
+    normalPlateRegExp: o,
+    newEnergyPlateRegExp: l,
+    mobileRegExp: i
   }, Symbol.toStringTag, {
     value: "Module"
   }));
 
-  function i(t) {
-    return n.test(t);
+  function a(e) {
+    return n.test(e);
   }
 
-  function a(t) {
-    return t.length !== 7 && t.length !== 8 ? !1 : t.length === 7 ? r.test(t) : o.test(t);
+  function c(e) {
+    return e.length !== 7 && e.length !== 8 ? !1 : e.length === 7 ? o.test(e) : l.test(e);
   }
 
-  var u = Object.freeze(Object.defineProperty({
+  function u(e) {
+    return i.test(e);
+  }
+
+  var f = Object.freeze(Object.defineProperty({
     __proto__: null,
-    checkEmail: i,
-    checkNumberPlate: a
+    checkEmail: a,
+    checkNumberPlate: c,
+    checkMobile: u
   }, Symbol.toStringTag, {
     value: "Module"
   }));
-  e.regexp = l, e.validator = u, Object.defineProperties(e, _defineProperty({
+  t.regexp = r, t.validator = f, Object.defineProperties(t, _defineProperty({
     __esModule: {
       value: !0
     }

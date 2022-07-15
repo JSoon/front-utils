@@ -13,4 +13,10 @@ export declare function checkEmail(email: string): boolean;
  * @returns
  */
 export declare function checkNumberPlate(numberPlate: string): boolean;
+/**
+ * 校验手机号码是否合法
+ * @param mobile 手机号码
+ * @returns
+ */
+export declare function checkMobile(mobile: string): boolean;
 //# sourceMappingURL=validator.d.ts.map
