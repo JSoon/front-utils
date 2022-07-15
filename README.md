@@ -61,15 +61,39 @@ validator.checkEmail('a.b@qq.com')
 ## API
 
 **regexp.emailExp**
-
 ```js
 regexp.emailExp.test('a.b@qq.com')
 ```
 
-**validator.checkEmail**
-
+**regexp.normalPlateRegExp**
 ```js
-validator.checkEmail('a.b@qq.com')
+regexp.normalPlateRegExp.test('川ALC351')
+```
+
+**regexp.newEnergyPlateRegExp**
+```js
+regexp.newEnergyPlateRegExp.test('川AD12345')
+```
+
+**regexp.mobileRegExp**
+```js
+regexp.mobileRegExp.test('13012345678')
+```
+
+**validator.checkEmail**
+```js
+validator.checkEmail('a.b@qq.com') // true
+```
+
+**validator.checkNumberPlate**
+```js
+validator.checkNumberPlate('川ALC351') // true
+validator.checkNumberPlate('川A123456') // false
+```
+
+**validator.checkMobile**
+```js
+validator.checkMobile('+8613687654321') // true
 ```
 
 ## Test

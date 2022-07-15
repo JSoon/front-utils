@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { checkEmail, checkNumberPlate } from '../lib/validator'
+import { checkEmail, checkMobile, checkNumberPlate } from '../lib/validator'
 
 suite('validator.ts', function () {
   /**
@@ -70,6 +70,25 @@ suite('validator.ts', function () {
       assert.equal(checkNumberPlate('川A2222i'), false)
       assert.equal(checkNumberPlate('川AL12345'), false)
       assert.equal(checkNumberPlate('川AD123456'), false)
+    })
+  })
+
+
+  /**
+   * 手机号码测试
+   */
+   suite('#checkMobile()', function () {
+    test('Should return true', function () {
+      assert.equal(checkMobile('13012345678'), true)
+      assert.equal(checkMobile('+8613687654321'), true)
+      assert.equal(checkMobile('18600000000'), true)
+      assert.equal(checkMobile('11111111111'), true)
+    })
+    test('Should return false', function () {
+      assert.equal(checkMobile('130123456781'), false)
+      assert.equal(checkMobile('8613687654321'), false)
+      assert.equal(checkMobile('+0013512345678'), false)
+      assert.equal(checkMobile('13O00000000'), false)
     })
   })
 })

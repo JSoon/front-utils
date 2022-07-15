@@ -2,7 +2,7 @@
  * 验证器
  */
 
-import { emailExp, newEnergyNumberPlateExp, normalNumberPlateExp } from "./regexp"
+import { emailRegExp, mobileRegExp, newEnergyPlateRegExp, normalPlateRegExp } from "./regexp"
 
 /**
  * 校验电子邮箱地址是否合法
@@ -18,7 +18,7 @@ export function checkEmail (email: string): boolean {
   // // https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/checkValidity#browser_compatibility
   // return typeof input.checkValidity === 'function' ? input.checkValidity() : emailExp.test(email)
 
-  return emailExp.test(email)
+  return emailRegExp.test(email)
 }
 
 /**
@@ -32,8 +32,17 @@ export function checkNumberPlate (numberPlate: string): boolean {
   }
   // 常规燃油车牌
   if (numberPlate.length === 7) {
-    return normalNumberPlateExp.test(numberPlate)
+    return normalPlateRegExp.test(numberPlate)
   }
   // 新能源车牌
-  return newEnergyNumberPlateExp.test(numberPlate)
+  return newEnergyPlateRegExp.test(numberPlate)
+}
+
+/**
+ * 校验手机号码是否合法
+ * @param mobile 手机号码
+ * @returns 
+ */
+export function checkMobile (mobile: string): boolean {
+  return mobileRegExp.test(mobile)
 }
