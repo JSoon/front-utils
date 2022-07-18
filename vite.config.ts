@@ -11,5 +11,7 @@ export default defineConfig({
       fileName: (format) => `rtfc_utils.${format}.js`,
       formats: ['es', 'umd']
     },
+    // 禁用vite压缩, 使用babel-preset-minify
+    minify: false
   },
 })
