@@ -11,7 +11,11 @@ export default defineConfig({
       fileName: (format) => `rtfc_utils.${format}.js`,
       formats: ['es', 'umd']
     },
-    // 禁用vite压缩, 使用babel-preset-minify
+    /**
+     * vite在library模式下不支持babel, 所以需要自己实现babel+minify工作流(禁用vite压缩, 使用babel-preset-minify)
+     * @description @vitejs/plugin-legacy does not support library mode
+     * @see {@link https://github.com/vitejs/vite/issues/1639}
+     */
     minify: false
   },
 })
