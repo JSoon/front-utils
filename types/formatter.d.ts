@@ -16,11 +16,12 @@ export declare function formatDatetime({ datetime, format }?: {
 }): string;
 /**
  * 数字千分位表示法
- * @param number 数字或数字字符串
+ * @param number  数字或数字字符串
+ * @param options 格式化配置
  * @returns 格式化千分位数字, 如: 1,234,567
  *
  * @see {@link https://docs.oracle.com/cd/E19455-01/806-0169/overview-9/index.html}
  * @see {@link https://stackoverflow.com/a/17663871/2630689}
  */
-export declare function formatThousandSeparator(number?: number | string, maximumFractionDigits?: number): string;
+export declare function formatThousandSeparator(number?: number | string, options?: Intl.NumberFormatOptions): string;
 //# sourceMappingURL=formatter.d.ts.map

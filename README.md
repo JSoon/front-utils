@@ -12,8 +12,17 @@
     - [ES Module](#es-module)
   - [API](#api)
     - [regexp](#regexp)
+      - [regexp.emailExp](#regexpemailexp)
+      - [regexp.normalPlateRegExp](#regexpnormalplateregexp)
+      - [regexp.newEnergyPlateRegExp](#regexpnewenergyplateregexp)
+      - [regexp.mobileRegExp](#regexpmobileregexp)
     - [validator](#validator)
+      - [validator.checkEmail()](#validatorcheckemail)
+      - [validator.checkNumberPlate()](#validatorchecknumberplate)
+      - [validator.checkMobile()](#validatorcheckmobile)
     - [formatter](#formatter)
+      - [formatter.formatDatetime()](#formatterformatdatetime)
+      - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
   - [Test](#test)
   - [Compabilities](#compabilities)
     - [Runtime Environment](#runtime-environment)
@@ -67,22 +76,26 @@ validator.checkEmail('a.b@qq.com')
 
 正则表达式
 
-**regexp.emailExp**
+#### regexp.emailExp
+- Example
 ```js
 regexp.emailExp.test('a.b@qq.com')
 ```
 
-**regexp.normalPlateRegExp**
+#### regexp.normalPlateRegExp
+- Example
 ```js
 regexp.normalPlateRegExp.test('川ALC351')
 ```
 
-**regexp.newEnergyPlateRegExp**
+#### regexp.newEnergyPlateRegExp
+- Example
 ```js
 regexp.newEnergyPlateRegExp.test('川AD12345')
 ```
 
-**regexp.mobileRegExp**
+#### regexp.mobileRegExp
+- Example
 ```js
 regexp.mobileRegExp.test('13012345678')
 ```
@@ -91,18 +104,19 @@ regexp.mobileRegExp.test('13012345678')
 
 验证器函数
 
-**validator.checkEmail(email)**
+#### validator.checkEmail()
+- Example
 ```js
 /**
  * 校验电子邮箱地址是否合法
  * @param email 电子邮箱地址
  * @returns 
  */
-// Examples
 validator.checkEmail('a.b@qq.com') // true
 ```
 
-**validator.checkNumberPlate(numberPlate)**
+#### validator.checkNumberPlate()
+- Example
 ```js
 /**
  * 校验车牌号码是否合法
@@ -114,7 +128,8 @@ validator.checkNumberPlate('川ALC351') // true
 validator.checkNumberPlate('川A123456') // false
 ```
 
-**validator.checkMobile(mobile)**
+#### validator.checkMobile()
+- Example
 ```js
 /**
  * 校验手机号码是否合法
@@ -129,18 +144,28 @@ validator.checkMobile('+8613687654321') // true
 
 格式化函数
 
-**formatter.formatDatetime(options)**
+#### formatter.formatDatetime()
+- Type
 ```js
 /**
  * 日期时间格式化
  * @param datetime  日期时间值
  * @param format    日期时间格式
  * @returns 格式化日期字符串, 默认: YYYY-MM-DD HH:mm:ss
+ * 
+ * @see {@link https://day.js.org/docs/en/display/format#list-of-all-available-formats}
  */
-// Examples
+function formatDatetime({ datetime, format }?: {
+    datetime?: dayjs.ConfigType;
+    format?: string;
+}): string;
+```
+- Example
+```js
 // 2022-07-10 22:00:10
 formatter.formatDatetime({
-  datetime: new Date('2022/07/10 22:00:10')
+  datetime: new Date('2022/07/10 22:00:10'),
+  format: 'YYYY-MM-DD HH:mm:ss'
 })
 // 2022-07-18 00:00:00
 formatter.formatDatetime({
@@ -148,14 +173,22 @@ formatter.formatDatetime({
 })
 ```
 
-**formatter.formatThousandSeparator**
+#### formatter.formatThousandSeparator()
+- Type
 ```js
 /**
  * 数字千分位表示法
- * @param number 数字或数字字符串
+ * @param number  数字或数字字符串
+ * @param options 格式化配置
  * @returns 格式化千分位数字, 如: 1,234,567
+ *
+ * @see {@link https://docs.oracle.com/cd/E19455-01/806-0169/overview-9/index.html}
+ * @see {@link https://stackoverflow.com/a/17663871/2630689}
  */
-// Examples
+function formatThousandSeparator(number?: number | string, options?: Intl.NumberFormatOptions): string;
+```
+- Example
+```js
 formatter.formatThousandSeparator(123456789.01) // 123,456,789.01
 formatter.formatThousandSeparator(123456789.23456, 3) // 123,456,789.235
 ```

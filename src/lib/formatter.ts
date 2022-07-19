@@ -24,13 +24,14 @@ export function formatDatetime ({
 
 /**
  * 数字千分位表示法
- * @param number 数字或数字字符串
+ * @param number  数字或数字字符串
+ * @param options 格式化配置
  * @returns 格式化千分位数字, 如: 1,234,567
  * 
  * @see {@link https://docs.oracle.com/cd/E19455-01/806-0169/overview-9/index.html}
  * @see {@link https://stackoverflow.com/a/17663871/2630689}
  */
-export function formatThousandSeparator (number: number | string = 0, maximumFractionDigits: number = 2) {
+export function formatThousandSeparator (number: number | string = 0, options: Intl.NumberFormatOptions = {}) {
   number = Number(number)
   if (isNaN(number)) {
     return 'Invalid Number'
@@ -38,8 +39,9 @@ export function formatThousandSeparator (number: number | string = 0, maximumFra
   if (number > Number.MAX_SAFE_INTEGER || number < Number.MIN_SAFE_INTEGER) {
     return 'Out of Range'
   }
-  return number.toLocaleString('en-US', {
+  return number.toLocaleString('zh-CN', {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options
-    maximumFractionDigits
+    maximumFractionDigits: 2,
+    ...options,
   })
 }
