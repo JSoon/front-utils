@@ -8,10 +8,11 @@ import dayjs from 'dayjs'
  * 日期时间格式化
  * @param datetime  日期时间值
  * @param format    日期时间格式
- * @see {@link https://day.js.org/docs/en/display/format#list-of-all-available-formats}
  * @returns 格式化日期字符串, 默认: YYYY-MM-DD HH:mm:ss
+ * 
+ * @see {@link https://day.js.org/docs/en/display/format#list-of-all-available-formats}
  */
-export function formatDatetime({
+export function formatDatetime ({
   datetime = new Date(),
   format = 'YYYY-MM-DD HH:mm:ss'
 }: {
@@ -19,4 +20,26 @@ export function formatDatetime({
   format?: string
 } = {}) {
   return dayjs(datetime).format(format)
+}
+
+/**
+ * 数字千分位表示法
+ * @param number 数字或数字字符串
+ * @returns 格式化千分位数字, 如: 1,234,567
+ * 
+ * @see {@link https://docs.oracle.com/cd/E19455-01/806-0169/overview-9/index.html}
+ * @see {@link https://stackoverflow.com/a/17663871/2630689}
+ */
+export function formatThousandSeparator (number: number | string = 0, maximumFractionDigits: number = 2) {
+  number = Number(number)
+  if (isNaN(number)) {
+    return 'Invalid Number'
+  }
+  if (number > Number.MAX_SAFE_INTEGER || number < Number.MIN_SAFE_INTEGER) {
+    return 'Out of Range'
+  }
+  return number.toLocaleString('en-US', {
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options
+    maximumFractionDigits
+  })
 }

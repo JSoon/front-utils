@@ -401,9 +401,28 @@ function formatDatetime() {
   return dayjs(datetime).format(format);
 }
 
+function formatThousandSeparator() {
+  var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var maximumFractionDigits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  number = Number(number);
+
+  if (isNaN(number)) {
+    return "Invalid Number";
+  }
+
+  if (number > Number.MAX_SAFE_INTEGER || number < Number.MIN_SAFE_INTEGER) {
+    return "Out of Range";
+  }
+
+  return number.toLocaleString("en-US", {
+    maximumFractionDigits: maximumFractionDigits
+  });
+}
+
 var formatter = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
   __proto__: null,
-  formatDatetime: formatDatetime
+  formatDatetime: formatDatetime,
+  formatThousandSeparator: formatThousandSeparator
 }, Symbol.toStringTag, {
   value: "Module"
 }));
