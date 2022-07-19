@@ -11,6 +11,9 @@
     - [Browser](#browser)
     - [ES Module](#es-module)
   - [API](#api)
+    - [regexp](#regexp)
+    - [validator](#validator)
+    - [formatter](#formatter)
   - [Test](#test)
   - [Compabilities](#compabilities)
     - [Runtime Environment](#runtime-environment)
@@ -60,6 +63,10 @@ validator.checkEmail('a.b@qq.com')
 
 ## API
 
+### regexp
+
+正则表达式
+
 **regexp.emailExp**
 ```js
 regexp.emailExp.test('a.b@qq.com')
@@ -80,20 +87,77 @@ regexp.newEnergyPlateRegExp.test('川AD12345')
 regexp.mobileRegExp.test('13012345678')
 ```
 
-**validator.checkEmail**
+### validator
+
+验证器函数
+
+**validator.checkEmail(email)**
 ```js
+/**
+ * 校验电子邮箱地址是否合法
+ * @param email 电子邮箱地址
+ * @returns 
+ */
+// Examples
 validator.checkEmail('a.b@qq.com') // true
 ```
 
-**validator.checkNumberPlate**
+**validator.checkNumberPlate(numberPlate)**
 ```js
+/**
+ * 校验车牌号码是否合法
+ * @param numberPlate 车牌号码
+ * @returns 
+ */
+// Examples
 validator.checkNumberPlate('川ALC351') // true
 validator.checkNumberPlate('川A123456') // false
 ```
 
-**validator.checkMobile**
+**validator.checkMobile(mobile)**
 ```js
+/**
+ * 校验手机号码是否合法
+ * @param mobile 手机号码
+ * @returns 
+ */
+// Examples
 validator.checkMobile('+8613687654321') // true
+```
+
+### formatter
+
+格式化函数
+
+**formatter.formatDatetime(options)**
+```js
+/**
+ * 日期时间格式化
+ * @param datetime  日期时间值
+ * @param format    日期时间格式
+ * @returns 格式化日期字符串, 默认: YYYY-MM-DD HH:mm:ss
+ */
+// Examples
+// 2022-07-10 22:00:10
+formatter.formatDatetime({
+  datetime: new Date('2022/07/10 22:00:10')
+})
+// 2022-07-18 00:00:00
+formatter.formatDatetime({
+  datetime: new Date(2022, 6, 18)
+})
+```
+
+**formatter.formatThousandSeparator**
+```js
+/**
+ * 数字千分位表示法
+ * @param number 数字或数字字符串
+ * @returns 格式化千分位数字, 如: 1,234,567
+ */
+// Examples
+formatter.formatThousandSeparator(123456789.01) // 123,456,789.01
+formatter.formatThousandSeparator(123456789.23456, 3) // 123,456,789.235
 ```
 
 ## Test
