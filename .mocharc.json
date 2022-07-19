@@ -3,7 +3,8 @@
   "extension": ["ts"],
   "spec": "src/test/**/*.spec.ts",
   "require": [
-    "ts-node/register", 
+    "ts-node/register",
+    "tsconfig-paths/register",
     "mochawesome/register",
     "src/test/hooks.cjs"
   ],

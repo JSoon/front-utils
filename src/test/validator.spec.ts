@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { checkEmail, checkMobile, checkNumberPlate } from '../lib/validator'
+import { checkEmail, checkMobile, checkNumberPlate } from '@/lib/validator'
 
 suite('validator.ts', function () {
   /**
