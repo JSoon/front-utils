@@ -1,5 +1,5 @@
-import { assert } from 'chai'
-import { checkEmail, checkMobile, checkNumberPlate } from '@/lib/validator'
+import { assert, } from 'chai';
+import { checkEmail, checkMobile, checkNumberPlate, } from '@/lib/validator';
 
 suite('validator.ts', function () {
   /**
@@ -9,69 +9,69 @@ suite('validator.ts', function () {
    */
   suite('#checkEmail()', function () {
     test('Should return true', function () {
-      assert.equal(checkEmail('something@something.com'), true)
-      assert.equal(checkEmail('someone@localhost.localdomain'), true)
-      assert.equal(checkEmail('someone@127.0.0.1'), true)
-      assert.equal(checkEmail('a@b.b'), true)
-      assert.equal(checkEmail('a/b@domain.com'), true)
-      assert.equal(checkEmail('{}@domain.com'), true)
-      assert.equal(checkEmail('m*\'!%@something.sa'), true)
-      assert.equal(checkEmail('tu!!7n7.ad##0!!!@company.ca'), true)
-      assert.equal(checkEmail('%@com.com'), true)
-      assert.equal(checkEmail('!#$%&\'*+/=?^_`{|}~.-@com.com'), true)
-      assert.equal(checkEmail('.wooly@example.com'), true)
-      assert.equal(checkEmail('wo..oly@example.com'), true)
-      assert.equal(checkEmail('someone@do-ma-in.com'), true)
-      assert.equal(checkEmail('somebody@example'), true)
-    })
+      assert.equal(checkEmail('something@something.com'), true);
+      assert.equal(checkEmail('someone@localhost.localdomain'), true);
+      assert.equal(checkEmail('someone@127.0.0.1'), true);
+      assert.equal(checkEmail('a@b.b'), true);
+      assert.equal(checkEmail('a/b@domain.com'), true);
+      assert.equal(checkEmail('{}@domain.com'), true);
+      assert.equal(checkEmail('m*\'!%@something.sa'), true);
+      assert.equal(checkEmail('tu!!7n7.ad##0!!!@company.ca'), true);
+      assert.equal(checkEmail('%@com.com'), true);
+      assert.equal(checkEmail('!#$%&\'*+/=?^_`{|}~.-@com.com'), true);
+      assert.equal(checkEmail('.wooly@example.com'), true);
+      assert.equal(checkEmail('wo..oly@example.com'), true);
+      assert.equal(checkEmail('someone@do-ma-in.com'), true);
+      assert.equal(checkEmail('somebody@example'), true);
+    });
     test('Should return false', function () {
-      assert.equal(checkEmail('invalid:email@example.com'), false)
-      assert.equal(checkEmail('@somewhere.com'), false)
-      assert.equal(checkEmail('example.com'), false)
-      assert.equal(checkEmail('@@example.com'), false)
-      assert.equal(checkEmail('a space@example.com'), false)
-      assert.equal(checkEmail('something@ex..ample.com'), false)
-      assert.equal(checkEmail('a\b@c'), false)
-      assert.equal(checkEmail('someone@somewhere.com.'), false)
-      assert.equal(checkEmail('""test\blah""@example.com'), false)
-      assert.equal(checkEmail('"testblah"@example.com'), false)
-      assert.equal(checkEmail('someone@somewhere.com@'), false)
-      assert.equal(checkEmail('someone@somewhere_com'), false)
-      assert.equal(checkEmail('someone@some:where.com'), false)
-      assert.equal(checkEmail('.'), false)
-      assert.equal(checkEmail('F/s/f/a@feo+re.com'), false)
-      assert.equal(checkEmail('some+long+email+address@some+host-weird-/looking.com'), false)
-      assert.equal(checkEmail('a @p.com'), false)
-      assert.equal(checkEmail('a\u0020@p.com'), false)
-      assert.equal(checkEmail('a\u0009@p.com'), false)
-      assert.equal(checkEmail('a\u000B@p.com'), false)
-      assert.equal(checkEmail('a\u000C@p.com'), false)
-      assert.equal(checkEmail('a\u2003@p.com'), false)
-      assert.equal(checkEmail('a\u3000@p.com'), false)
-      assert.equal(checkEmail('ddjk-s-jk@asl-.com'), false)
-      assert.equal(checkEmail('someone@do-.com'), false)
-      assert.equal(checkEmail('somebody@-p.com'), false)
-      assert.equal(checkEmail('somebody@-.com'), false)
-    })
-  })
+      assert.equal(checkEmail('invalid:email@example.com'), false);
+      assert.equal(checkEmail('@somewhere.com'), false);
+      assert.equal(checkEmail('example.com'), false);
+      assert.equal(checkEmail('@@example.com'), false);
+      assert.equal(checkEmail('a space@example.com'), false);
+      assert.equal(checkEmail('something@ex..ample.com'), false);
+      assert.equal(checkEmail('a\b@c'), false);
+      assert.equal(checkEmail('someone@somewhere.com.'), false);
+      assert.equal(checkEmail('""test\blah""@example.com'), false);
+      assert.equal(checkEmail('"testblah"@example.com'), false);
+      assert.equal(checkEmail('someone@somewhere.com@'), false);
+      assert.equal(checkEmail('someone@somewhere_com'), false);
+      assert.equal(checkEmail('someone@some:where.com'), false);
+      assert.equal(checkEmail('.'), false);
+      assert.equal(checkEmail('F/s/f/a@feo+re.com'), false);
+      assert.equal(checkEmail('some+long+email+address@some+host-weird-/looking.com'), false);
+      assert.equal(checkEmail('a @p.com'), false);
+      assert.equal(checkEmail('a\u0020@p.com'), false);
+      assert.equal(checkEmail('a\u0009@p.com'), false);
+      assert.equal(checkEmail('a\u000B@p.com'), false);
+      assert.equal(checkEmail('a\u000C@p.com'), false);
+      assert.equal(checkEmail('a\u2003@p.com'), false);
+      assert.equal(checkEmail('a\u3000@p.com'), false);
+      assert.equal(checkEmail('ddjk-s-jk@asl-.com'), false);
+      assert.equal(checkEmail('someone@do-.com'), false);
+      assert.equal(checkEmail('somebody@-p.com'), false);
+      assert.equal(checkEmail('somebody@-.com'), false);
+    });
+  });
 
   /**
    * 车牌号码测试
    */
   suite('#checkNumberPlate()', function () {
     test('Should return true', function () {
-      assert.equal(checkNumberPlate('川A123AB'), true)
-      assert.equal(checkNumberPlate('川A2222学'), true)
-      assert.equal(checkNumberPlate('川AF12345'), true)
-      assert.equal(checkNumberPlate('川A12345D'), true)
-    })
+      assert.equal(checkNumberPlate('川A123AB'), true);
+      assert.equal(checkNumberPlate('川A2222学'), true);
+      assert.equal(checkNumberPlate('川AF12345'), true);
+      assert.equal(checkNumberPlate('川A12345D'), true);
+    });
     test('Should return false', function () {
-      assert.equal(checkNumberPlate('川A123456'), false)
-      assert.equal(checkNumberPlate('川A2222i'), false)
-      assert.equal(checkNumberPlate('川AL12345'), false)
-      assert.equal(checkNumberPlate('川AD123456'), false)
-    })
-  })
+      assert.equal(checkNumberPlate('川A123456'), false);
+      assert.equal(checkNumberPlate('川A2222i'), false);
+      assert.equal(checkNumberPlate('川AL12345'), false);
+      assert.equal(checkNumberPlate('川AD123456'), false);
+    });
+  });
 
 
   /**
@@ -79,16 +79,16 @@ suite('validator.ts', function () {
    */
    suite('#checkMobile()', function () {
     test('Should return true', function () {
-      assert.equal(checkMobile('13012345678'), true)
-      assert.equal(checkMobile('+8613687654321'), true)
-      assert.equal(checkMobile('18600000000'), true)
-      assert.equal(checkMobile('11111111111'), true)
-    })
+      assert.equal(checkMobile('13012345678'), true);
+      assert.equal(checkMobile('+8613687654321'), true);
+      assert.equal(checkMobile('18600000000'), true);
+      assert.equal(checkMobile('11111111111'), true);
+    });
     test('Should return false', function () {
-      assert.equal(checkMobile('130123456781'), false)
-      assert.equal(checkMobile('8613687654321'), false)
-      assert.equal(checkMobile('+0013512345678'), false)
-      assert.equal(checkMobile('13O00000000'), false)
-    })
-  })
-})
+      assert.equal(checkMobile('130123456781'), false);
+      assert.equal(checkMobile('8613687654321'), false);
+      assert.equal(checkMobile('+0013512345678'), false);
+      assert.equal(checkMobile('13O00000000'), false);
+    });
+  });
+});
