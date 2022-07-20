@@ -203,7 +203,7 @@ function formatThousandSeparator(number?: number | string, options?: Intl.Number
 - Example
 ```js
 formatter.formatThousandSeparator(123456789.01); // 123,456,789.01
-formatter.formatThousandSeparator(123456789.23456, 3); // 123,456,789.235
+formatter.formatThousandSeparator(123456789.23456, { maximumFractionDigits: 3, }); // 123,456,789.235
 ```
 
 ## Test
