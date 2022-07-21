@@ -41,7 +41,7 @@ pnpm add --registry http://10.0.60.84:4873 @front-utils/rtfc-utils
 yarn add --registry http://10.0.60.84:4873 @front-utils/rtfc-utils
 
 # npm
-npm i --registry http://10.0.60.84:4873 -S @front-utils/rtfc-utils
+npm i --registry http://10.0.60.84:4873 @front-utils/rtfc-utils
 ```
 
 ## Usage
