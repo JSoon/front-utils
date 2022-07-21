@@ -16,10 +16,12 @@
       - [regexp.normalPlateRegExp](#regexpnormalplateregexp)
       - [regexp.newEnergyPlateRegExp](#regexpnewenergyplateregexp)
       - [regexp.mobileRegExp](#regexpmobileregexp)
+      - [regexp.IDCardNoRegExp](#regexpidcardnoregexp)
     - [validator](#validator)
       - [validator.checkEmail()](#validatorcheckemail)
       - [validator.checkNumberPlate()](#validatorchecknumberplate)
       - [validator.checkMobile()](#validatorcheckmobile)
+      - [validator.checkIDCardNo()](#validatorcheckidcardno)
     - [formatter](#formatter)
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
@@ -100,6 +102,12 @@ regexp.newEnergyPlateRegExp.test('川AD12345');
 regexp.mobileRegExp.test('13012345678');
 ```
 
+#### regexp.IDCardNoRegExp
+- Example
+```js
+regexp.IDCardNoRegExp.test('11010519491231002X');
+```
+
 ### validator
 
 验证器函数
@@ -148,6 +156,23 @@ function checkMobile(mobile: string): boolean;
 - Example
 ```js
 validator.checkMobile('+8613687654321'); // true
+```
+
+#### validator.checkIDCardNo()
+- Type
+```js
+/**
+ * 校验身份证号码是否合法
+ * @param idCardNo 身份证号码
+ * @returns
+ */
+function checkIDCardNo(idCardNo: string): boolean;
+```
+- Example
+```js
+validator.checkIDCardNo('11010519491231002X'); // true
+validator.checkIDCardNo('01010519491231002X'); // false
+
 ```
 
 ### formatter

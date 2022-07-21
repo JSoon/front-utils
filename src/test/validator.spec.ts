@@ -1,5 +1,5 @@
 import { assert, } from 'chai';
-import { checkEmail, checkMobile, checkNumberPlate, } from '@/lib/validator';
+import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, } from '@/lib/validator';
 
 suite('validator.ts', function () {
   /**
@@ -73,7 +73,6 @@ suite('validator.ts', function () {
     });
   });
 
-
   /**
    * 手机号码测试
    */
@@ -89,6 +88,33 @@ suite('validator.ts', function () {
       assert.equal(checkMobile('8613687654321'), false);
       assert.equal(checkMobile('+0013512345678'), false);
       assert.equal(checkMobile('13O00000000'), false);
+    });
+  });
+
+  /**
+   * 身份证号码测试
+   */
+   suite('#checkIDCardNo()', function () {
+    test('Should return true', function () {
+      assert.equal(checkIDCardNo('11010519491231002X'), true);
+      // 日期码不符, 未精确校验
+      assert.equal(checkIDCardNo('110105199902310026'), true);
+      // 地址码不符, 未精确校验
+      assert.equal(checkIDCardNo('16010519491231002X'), true);
+      // 校验码不符, 未精确校验
+      assert.equal(checkIDCardNo('110105194912310021'), true);
+    });
+    test('Should return false', function () {
+      // 地址码不能以0开始
+      assert.equal(checkIDCardNo('01010519491231002X'), false);
+      // 年份码没有1849
+      assert.equal(checkIDCardNo('11010518491231002X'), false);
+      // 月份码没有13
+      assert.equal(checkIDCardNo('11010519491331002X'), false);
+      // 日期码没有32
+      assert.equal(checkIDCardNo('11010519491232002X'), false);
+      // 校验码没有a
+      assert.equal(checkIDCardNo('11010519491232002a'), false);
     });
   });
 });

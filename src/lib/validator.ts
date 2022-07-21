@@ -2,14 +2,14 @@
  * 验证器
  */
 
-import { emailRegExp, mobileRegExp, newEnergyPlateRegExp, normalPlateRegExp, } from './regexp';
+import { emailRegExp, IDCardNoRegExp, mobileRegExp, newEnergyPlateRegExp, normalPlateRegExp, } from './regexp';
 
 /**
  * 校验电子邮箱地址是否合法
  * @param email 电子邮箱地址
  * @returns 
  */
-export function checkEmail (email: string): boolean {
+export function checkEmail (email: string) {
   // // NOTE: 考虑是否使用浏览器厂商实现的规则??
   // const input = document.createElement('input')
   // input.type = 'email'
@@ -26,7 +26,7 @@ export function checkEmail (email: string): boolean {
  * @param numberPlate 车牌号码
  * @returns 
  */
-export function checkNumberPlate (numberPlate: string): boolean {
+export function checkNumberPlate (numberPlate: string) {
   if (numberPlate.length !== 7 && numberPlate.length !== 8) {
     return false;
   }
@@ -45,4 +45,13 @@ export function checkNumberPlate (numberPlate: string): boolean {
  */
 export function checkMobile (mobile: string): boolean {
   return mobileRegExp.test(mobile);
+}
+
+/**
+ * 校验身份证号码是否合法
+ * @param idCardNo 身份证号码
+ * @returns 
+ */
+export function checkIDCardNo (idCardNo: string) {
+  return IDCardNoRegExp.test(idCardNo);
 }

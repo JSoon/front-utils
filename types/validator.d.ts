@@ -19,4 +19,10 @@ export declare function checkNumberPlate(numberPlate: string): boolean;
  * @returns
  */
 export declare function checkMobile(mobile: string): boolean;
+/**
+ * 校验身份证号码是否合法
+ * @param idCardNo 身份证号码
+ * @returns
+ */
+export declare function checkIDCardNo(idCardNo: string): boolean;
 //# sourceMappingURL=validator.d.ts.map

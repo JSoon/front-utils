@@ -34,11 +34,49 @@ export declare const normalPlateRegExp: RegExp;
  */
 export declare const newEnergyPlateRegExp: RegExp;
 /**
- * 手机号码
+ * 中国大陆手机号码
  *
  * @description
  * 1. +86后面跟11位数字
  * 2. 11位数字
  */
 export declare const mobileRegExp: RegExp;
+/**
+ * 中国大陆居民身份证号码
+ *
+ * @description
+ * 地址码:
+ * - 长6位
+ * - 以数字1-9开头
+ * - 后5位为0-9的数字
+ * NOTE: 我国并不存在16，26开头的地区, 未做精确校验
+ *
+ * 年份码:
+ * - 长4位
+ * - 以数字18，19或20开头(若不需要18开头的年份，可以去掉18)
+ * - 剩余两位为0-9的数字
+ *
+ * 月份码:
+ * - 长2位
+ * - 第一位数字为0，第二位数字为1-9
+ * - 或者第一位数字为1，第二位数字为0-2
+ *
+ * 日期码:
+ * - 长2位
+ * - 第一位数字为0-2，第二位数字为1-9
+ * - 或者是10，20，30，31
+ * NOTE: 2月并不存在31日, 未做精确校验
+ *
+ * 顺序码:
+ * - 长3位
+ * - 是数字
+ *
+ * 校验码:
+ * - 长1位
+ * - 可以是数字，字母x或字母X
+ * NOTE: 校验码是由17位本体码计算得出, 未做精确校验
+ *
+ * @see {@link https://www.jianshu.com/p/8ee4ad0c1f31}
+ */
+export declare const IDCardNoRegExp: RegExp;
 //# sourceMappingURL=regexp.d.ts.map
