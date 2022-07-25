@@ -79,4 +79,17 @@ export declare const mobileRegExp: RegExp;
  * @see {@link https://www.jianshu.com/p/8ee4ad0c1f31}
  */
 export declare const IDCardNoRegExp: RegExp;
+/**
+ * 强密码
+ *
+ * @description
+ * - 至少包含一个小写字母
+ * - 至少包含一个大写字母
+ * - 至少包含一个数字
+ * - 至少包含一个特殊字符
+ * - 总长度8到16位
+ *
+ * @see {@link https://stackoverflow.com/a/59117568/2630689}
+ */
+export declare const strongPasswordExp: RegExp;
 //# sourceMappingURL=regexp.d.ts.map

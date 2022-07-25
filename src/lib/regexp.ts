@@ -83,4 +83,18 @@ export const mobileRegExp = /^(\+86)?1\d{10}$/;
  * 
  * @see {@link https://www.jianshu.com/p/8ee4ad0c1f31}
  */
- export const IDCardNoRegExp = /^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+export const IDCardNoRegExp = /^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+
+/**
+ * 强密码
+ * 
+ * @description
+ * - 至少包含一个小写字母
+ * - 至少包含一个大写字母
+ * - 至少包含一个数字
+ * - 至少包含一个特殊字符
+ * - 总长度8到16位
+ * 
+ * @see {@link https://stackoverflow.com/a/59117568/2630689}
+ */
+export const strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,16}$/;

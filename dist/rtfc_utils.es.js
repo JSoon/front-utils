@@ -56,13 +56,15 @@ var normalPlateRegExp = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂�
 var newEnergyPlateRegExp = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DABCEFGHJK])|([DABCEFGHJK][A-HJ-NP-Z0-9][0-9]{4}))$/;
 var mobileRegExp = /^(\+86)?1\d{10}$/;
 var IDCardNoRegExp = /^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+var strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,16}$/;
 var regexp = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
   __proto__: null,
   emailRegExp: emailRegExp,
   normalPlateRegExp: normalPlateRegExp,
   newEnergyPlateRegExp: newEnergyPlateRegExp,
   mobileRegExp: mobileRegExp,
-  IDCardNoRegExp: IDCardNoRegExp
+  IDCardNoRegExp: IDCardNoRegExp,
+  strongPasswordExp: strongPasswordExp
 }, Symbol.toStringTag, {
   value: "Module"
 }));
@@ -92,12 +94,17 @@ function checkIDCardNo(idCardNo) {
   return IDCardNoRegExp.test(idCardNo);
 }
 
+function checkStrongPassword(password) {
+  return strongPasswordExp.test(password);
+}
+
 var validator = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
   __proto__: null,
   checkEmail: checkEmail,
   checkNumberPlate: checkNumberPlate,
   checkMobile: checkMobile,
-  checkIDCardNo: checkIDCardNo
+  checkIDCardNo: checkIDCardNo,
+  checkStrongPassword: checkStrongPassword
 }, Symbol.toStringTag, {
   value: "Module"
 }));

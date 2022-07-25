@@ -1,5 +1,5 @@
 import { assert, } from 'chai';
-import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, } from '@/lib/validator';
+import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, checkStrongPassword, } from '@/lib/validator';
 
 suite('validator.ts', function () {
   /**
@@ -115,6 +115,50 @@ suite('validator.ts', function () {
       assert.equal(checkIDCardNo('11010519491232002X'), false);
       // 校验码没有a
       assert.equal(checkIDCardNo('11010519491232002a'), false);
+    });
+  });
+
+  /**
+   * 强密码测试
+   */
+   suite('#checkStrongPassword()', function () {
+    test('Should return true', function () {
+      assert.equal(checkStrongPassword('!qa@ws#ed%tG123'), true);
+      assert.equal(checkStrongPassword('12345!qA'), true);
+      assert.equal(checkStrongPassword('abcd!123E'), true);
+      assert.equal(checkStrongPassword('QWERasdf1234%^&*'), true);
+    });
+    test('Should return false', function () {
+      // 4位
+      assert.equal(checkStrongPassword('!1qA'), false);
+      // 18位
+      assert.equal(checkStrongPassword('123qweQWE~!@#$%^&*'), false);
+      // 纯数字
+      assert.equal(checkStrongPassword('12345678'), false);
+      // 纯大写字母
+      assert.equal(checkStrongPassword('QWERTYUIOP'), false);
+      // 纯小写字母
+      assert.equal(checkStrongPassword('qwertyuiop'), false);
+      // 纯特殊字符
+      assert.equal(checkStrongPassword('~!@#$%^&*'), false);
+      // 数字+大写字母
+      assert.equal(checkStrongPassword('12345QWERT'), false);
+      // 数字+小字母
+      assert.equal(checkStrongPassword('12345qwert'), false);
+      // 数字+特殊字符
+      assert.equal(checkStrongPassword('12345~!@#$%^&*'), false);
+      // 大写字母+小写字母
+      assert.equal(checkStrongPassword('QWERTqwert'), false);
+      // 大写字母+特殊字符
+      assert.equal(checkStrongPassword('QWERT!@#$%^&*'), false);
+      // 小写字母+特殊字符
+      assert.equal(checkStrongPassword('qwert!@#$%^&*'), false);
+      // 数字+大写字母+小写字母
+      assert.equal(checkStrongPassword('12345QWERTqwert'), false);
+      // 数字+大写字母+特殊字符
+      assert.equal(checkStrongPassword('12345QWERT!@#$%'), false);
+      // 大写字母+小写字母+特殊字符
+      assert.equal(checkStrongPassword('QWERTqwert!@#$%'), false);
     });
   });
 });

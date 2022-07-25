@@ -17,11 +17,13 @@
       - [regexp.newEnergyPlateRegExp](#regexpnewenergyplateregexp)
       - [regexp.mobileRegExp](#regexpmobileregexp)
       - [regexp.IDCardNoRegExp](#regexpidcardnoregexp)
+      - [regexp.strongPasswordExp](#regexpstrongpasswordexp)
     - [validator](#validator)
       - [validator.checkEmail()](#validatorcheckemail)
       - [validator.checkNumberPlate()](#validatorchecknumberplate)
       - [validator.checkMobile()](#validatorcheckmobile)
       - [validator.checkIDCardNo()](#validatorcheckidcardno)
+      - [validator.checkStrongPassword()](#validatorcheckstrongpassword)
     - [formatter](#formatter)
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
@@ -108,6 +110,12 @@ regexp.mobileRegExp.test('13012345678');
 regexp.IDCardNoRegExp.test('11010519491231002X');
 ```
 
+#### regexp.strongPasswordExp
+- Example
+```js
+regexp.strongPasswordExp.test('!qa@ws#ed%tG123');
+```
+
 ### validator
 
 验证器函数
@@ -118,7 +126,6 @@ regexp.IDCardNoRegExp.test('11010519491231002X');
 /**
  * 校验电子邮箱地址是否合法
  * @param email 电子邮箱地址
- * @returns
  */
 function checkEmail(email: string): boolean;
 ```
@@ -133,7 +140,6 @@ validator.checkEmail('a.b@qq.com'); // true
 /**
  * 校验车牌号码是否合法
  * @param numberPlate 车牌号码
- * @returns
  */
 function checkNumberPlate(numberPlate: string): boolean;
 ```
@@ -149,7 +155,6 @@ validator.checkNumberPlate('川A123456'); // false
 /**
  * 校验手机号码是否合法
  * @param mobile 手机号码
- * @returns
  */
 function checkMobile(mobile: string): boolean;
 ```
@@ -164,7 +169,6 @@ validator.checkMobile('+8613687654321'); // true
 /**
  * 校验身份证号码是否合法
  * @param idCardNo 身份证号码
- * @returns
  */
 function checkIDCardNo(idCardNo: string): boolean;
 ```
@@ -172,7 +176,22 @@ function checkIDCardNo(idCardNo: string): boolean;
 ```js
 validator.checkIDCardNo('11010519491231002X'); // true
 validator.checkIDCardNo('01010519491231002X'); // false
+```
 
+#### validator.checkStrongPassword()
+- Type
+```js
+/**
+ * 校验是否为强密码
+ * @param password 密码
+ */
+function checkStrongPassword(password: string): boolean;
+```
+- Example
+```js
+validator.checkStrongPassword('!qa@ws#ed%tG123'); // true
+validator.checkStrongPassword('123qweQWE~!@#$%^&*'); // false
+validator.checkStrongPassword('12345678'); // false
 ```
 
 ### formatter
