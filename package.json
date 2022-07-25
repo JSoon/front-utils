@@ -1,7 +1,7 @@
 {
   "name": "@front-utils/rtfc-utils",
   "private": false,
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "dist/rtfc_utils.es.js",
   "types": "types/main.d.ts",
   "scripts": {

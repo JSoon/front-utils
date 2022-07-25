@@ -2,7 +2,7 @@
  * 验证器
  */
 
-import { emailRegExp, IDCardNoRegExp, mobileRegExp, newEnergyPlateRegExp, normalPlateRegExp, strongPasswordExp, } from './regexp';
+import { emailRegExp, IDCardNoRegExp, mobileRegExp, newEnergyPlateRegExp, normalPlateRegExp, positiveRN2DExp, positiveRN3DExp, strongPasswordExp, } from './regexp';
 
 /**
  * 校验电子邮箱地址是否合法
@@ -57,5 +57,21 @@ export function checkIDCardNo (idCardNo: string) {
  * @param password 密码
  */
 export function checkStrongPassword (password: string) {
- return strongPasswordExp.test(password);
+  return strongPasswordExp.test(password);
+}
+
+/**
+ * 校验是否为正有理数(最多2位小数)
+ * @param numberString 数字字符串
+ */
+export function checkPositiveRN2Exp (numberString: string) {
+  return positiveRN2DExp.test(numberString);
+}
+
+/**
+ * 校验是否为正有理数(最多3位小数)
+ * @param numberString 数字字符串
+ */
+export function checkPositiveRN3Exp (numberString: string) {
+  return positiveRN3DExp.test(numberString);
 }

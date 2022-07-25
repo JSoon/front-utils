@@ -98,3 +98,19 @@ export const IDCardNoRegExp = /^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2]
  * @see {@link https://stackoverflow.com/a/59117568/2630689}
  */
 export const strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,16}$/;
+
+/**
+ * 正有理数
+ * RN2D = Rational Number With Max 2 Decimal Places
+ * 
+ * @description 至多包含2位小数
+ */
+export const positiveRN2DExp = /^[0-9]+(.[0-9]{1,2})?$/;
+
+/**
+ * 正有理数
+ * RN2D = Rational Number With Max 3 Decimal Places
+ * 
+ * @description 至多包含3位小数
+ */
+export const positiveRN3DExp = /^[0-9]+(.[0-9]{1,3})?$/;

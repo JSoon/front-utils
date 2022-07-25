@@ -92,4 +92,18 @@ export declare const IDCardNoRegExp: RegExp;
  * @see {@link https://stackoverflow.com/a/59117568/2630689}
  */
 export declare const strongPasswordExp: RegExp;
+/**
+ * 正有理数
+ * RN2D = Rational Number With Max 2 Decimal Places
+ *
+ * @description 至多包含2位小数
+ */
+export declare const positiveRN2DExp: RegExp;
+/**
+ * 正有理数
+ * RN2D = Rational Number With Max 3 Decimal Places
+ *
+ * @description 至多包含3位小数
+ */
+export declare const positiveRN3DExp: RegExp;
 //# sourceMappingURL=regexp.d.ts.map

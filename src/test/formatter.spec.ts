@@ -5,7 +5,7 @@ suite('formatter.ts', function () {
   /**
    * 日期时间格式化测试
    */
-   suite('#formatDatetime()', function () {
+  suite('#formatDatetime()', function () {
     test('Should be equal', function () {
       assert.equal(formatDatetime({
         datetime: new Date('2022'),
@@ -34,7 +34,7 @@ suite('formatter.ts', function () {
   /**
    * 数字千分位表示法
    */
-   suite('#formatThousandSeparator()', function () {
+  suite('#formatThousandSeparator()', function () {
     test('Should be equal', function () {
       assert.equal(formatThousandSeparator(), '0');
       assert.equal(formatThousandSeparator(1000), '1,000');

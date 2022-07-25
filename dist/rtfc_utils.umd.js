@@ -59,6 +59,8 @@ var __spreadValues = function __spreadValues(a, b) {
   var mobileRegExp = /^(\+86)?1\d{10}$/;
   var IDCardNoRegExp = /^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
   var strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,16}$/;
+  var positiveRN2DExp = /^[0-9]+(.[0-9]{1,2})?$/;
+  var positiveRN3DExp = /^[0-9]+(.[0-9]{1,3})?$/;
   var regexp = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
     __proto__: null,
     emailRegExp: emailRegExp,
@@ -66,7 +68,9 @@ var __spreadValues = function __spreadValues(a, b) {
     newEnergyPlateRegExp: newEnergyPlateRegExp,
     mobileRegExp: mobileRegExp,
     IDCardNoRegExp: IDCardNoRegExp,
-    strongPasswordExp: strongPasswordExp
+    strongPasswordExp: strongPasswordExp,
+    positiveRN2DExp: positiveRN2DExp,
+    positiveRN3DExp: positiveRN3DExp
   }, Symbol.toStringTag, {
     value: "Module"
   }));
@@ -99,13 +103,23 @@ var __spreadValues = function __spreadValues(a, b) {
     return strongPasswordExp.test(password);
   }
 
+  function checkPositiveRN2Exp(numberString) {
+    return positiveRN2DExp.test(numberString);
+  }
+
+  function checkPositiveRN3Exp(numberString) {
+    return positiveRN3DExp.test(numberString);
+  }
+
   var validator = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
     __proto__: null,
     checkEmail: checkEmail,
     checkNumberPlate: checkNumberPlate,
     checkMobile: checkMobile,
     checkIDCardNo: checkIDCardNo,
-    checkStrongPassword: checkStrongPassword
+    checkStrongPassword: checkStrongPassword,
+    checkPositiveRN2Exp: checkPositiveRN2Exp,
+    checkPositiveRN3Exp: checkPositiveRN3Exp
   }, Symbol.toStringTag, {
     value: "Module"
   }));

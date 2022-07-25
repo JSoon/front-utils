@@ -1,5 +1,5 @@
 import { assert, } from 'chai';
-import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, checkStrongPassword, } from '@/lib/validator';
+import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, checkPositiveRN2Exp, checkPositiveRN3Exp, checkStrongPassword, } from '@/lib/validator';
 
 suite('validator.ts', function () {
   /**
@@ -76,7 +76,7 @@ suite('validator.ts', function () {
   /**
    * 手机号码测试
    */
-   suite('#checkMobile()', function () {
+  suite('#checkMobile()', function () {
     test('Should return true', function () {
       assert.equal(checkMobile('13012345678'), true);
       assert.equal(checkMobile('+8613687654321'), true);
@@ -94,7 +94,7 @@ suite('validator.ts', function () {
   /**
    * 身份证号码测试
    */
-   suite('#checkIDCardNo()', function () {
+  suite('#checkIDCardNo()', function () {
     test('Should return true', function () {
       assert.equal(checkIDCardNo('11010519491231002X'), true);
       // 日期码不符, 未精确校验
@@ -121,7 +121,7 @@ suite('validator.ts', function () {
   /**
    * 强密码测试
    */
-   suite('#checkStrongPassword()', function () {
+  suite('#checkStrongPassword()', function () {
     test('Should return true', function () {
       assert.equal(checkStrongPassword('!qa@ws#ed%tG123'), true);
       assert.equal(checkStrongPassword('12345!qA'), true);
@@ -159,6 +159,56 @@ suite('validator.ts', function () {
       assert.equal(checkStrongPassword('12345QWERT!@#$%'), false);
       // 大写字母+小写字母+特殊字符
       assert.equal(checkStrongPassword('QWERTqwert!@#$%'), false);
+    });
+  });
+
+  /**
+   * 正有理数测试(至多2位小数)
+   */
+  suite('#checkPositiveRN2Exp()', function () {
+    test('Should return true', function () {
+      assert.equal(checkPositiveRN2Exp('123'), true);
+      assert.equal(checkPositiveRN2Exp('1234567890'), true);
+      assert.equal(checkPositiveRN2Exp('123.4'), true);
+      assert.equal(checkPositiveRN2Exp('123.0'), true);
+      assert.equal(checkPositiveRN2Exp('123.00'), true);
+      assert.equal(checkPositiveRN2Exp('123.04'), true);
+      assert.equal(checkPositiveRN2Exp('123.45'), true);
+      assert.equal(checkPositiveRN2Exp('0.00'), true);
+      assert.equal(checkPositiveRN2Exp('0.12'), true);
+      assert.equal(checkPositiveRN2Exp('00.12'), true);
+    });
+    test('Should return false', function () {
+      assert.equal(checkPositiveRN2Exp('123.'), false);
+      assert.equal(checkPositiveRN2Exp('.'), false);
+      assert.equal(checkPositiveRN2Exp('.1'), false);
+      assert.equal(checkPositiveRN2Exp('0.000'), false);
+      assert.equal(checkPositiveRN2Exp('123.456'), false);
+    });
+  });
+
+  /**
+   * 正有理数测试(至多3位小数)
+   */
+  suite('#checkPositiveRN3Exp()', function () {
+    test('Should return true', function () {
+      assert.equal(checkPositiveRN3Exp('123'), true);
+      assert.equal(checkPositiveRN3Exp('1234567890'), true);
+      assert.equal(checkPositiveRN3Exp('123.4'), true);
+      assert.equal(checkPositiveRN3Exp('123.0'), true);
+      assert.equal(checkPositiveRN3Exp('123.00'), true);
+      assert.equal(checkPositiveRN3Exp('123.04'), true);
+      assert.equal(checkPositiveRN3Exp('123.456'), true);
+      assert.equal(checkPositiveRN3Exp('0.000'), true);
+      assert.equal(checkPositiveRN3Exp('0.123'), true);
+      assert.equal(checkPositiveRN3Exp('00.123'), true);
+    });
+    test('Should return false', function () {
+      assert.equal(checkPositiveRN3Exp('123.'), false);
+      assert.equal(checkPositiveRN3Exp('.'), false);
+      assert.equal(checkPositiveRN3Exp('.1'), false);
+      assert.equal(checkPositiveRN3Exp('0.0000'), false);
+      assert.equal(checkPositiveRN3Exp('123.4567'), false);
     });
   });
 });

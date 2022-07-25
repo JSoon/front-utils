@@ -18,12 +18,16 @@
       - [regexp.mobileRegExp](#regexpmobileregexp)
       - [regexp.IDCardNoRegExp](#regexpidcardnoregexp)
       - [regexp.strongPasswordExp](#regexpstrongpasswordexp)
+      - [regexp.positiveRN2DExp](#regexppositivern2dexp)
+      - [regexp.positiveRN3DExp](#regexppositivern3dexp)
     - [validator](#validator)
       - [validator.checkEmail()](#validatorcheckemail)
       - [validator.checkNumberPlate()](#validatorchecknumberplate)
       - [validator.checkMobile()](#validatorcheckmobile)
       - [validator.checkIDCardNo()](#validatorcheckidcardno)
       - [validator.checkStrongPassword()](#validatorcheckstrongpassword)
+      - [validator.checkPositiveRN2Exp()](#validatorcheckpositivern2exp)
+      - [validator.checkPositiveRN3Exp()](#validatorcheckpositivern3exp)
     - [formatter](#formatter)
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
@@ -116,6 +120,18 @@ regexp.IDCardNoRegExp.test('11010519491231002X');
 regexp.strongPasswordExp.test('!qa@ws#ed%tG123');
 ```
 
+#### regexp.positiveRN2DExp
+- Example
+```js
+regexp.positiveRN2DExp.test('1.23');
+```
+
+#### regexp.positiveRN3DExp
+- Example
+```js
+regexp.positiveRN3DExp.test('1.234');
+```
+
 ### validator
 
 验证器函数
@@ -192,6 +208,36 @@ function checkStrongPassword(password: string): boolean;
 validator.checkStrongPassword('!qa@ws#ed%tG123'); // true
 validator.checkStrongPassword('123qweQWE~!@#$%^&*'); // false
 validator.checkStrongPassword('12345678'); // false
+```
+
+#### validator.checkPositiveRN2Exp()
+- Type
+```js
+/**
+ * 校验是否为正有理数(最多2位小数)
+ * @param numberString 数字字符串
+ */
+function checkPositiveRN2Exp(numberString: string): boolean;
+```
+- Example
+```js
+validator.checkPositiveRN2Exp('123.45'); // true
+validator.checkPositiveRN2Exp('123.456'); // false
+```
+
+#### validator.checkPositiveRN3Exp()
+- Type
+```js
+/**
+ * 校验是否为正有理数(最多3位小数)
+ * @param numberString 数字字符串
+ */
+function checkPositiveRN3Exp(numberString: string): boolean;
+```
+- Example
+```js
+validator.checkPositiveRN3Exp('123.456'); // true
+validator.checkPositiveRN3Exp('123.4567'); // false
 ```
 
 ### formatter
