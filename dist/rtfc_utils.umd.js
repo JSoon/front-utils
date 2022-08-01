@@ -61,6 +61,7 @@ var __spreadValues = function __spreadValues(a, b) {
   var strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,16}$/;
   var positiveRN2DExp = /^[0-9]+(.[0-9]{1,2})?$/;
   var positiveRN3DExp = /^[0-9]+(.[0-9]{1,3})?$/;
+  var fileExtExp = /(?:\.([^.]+))?$/;
   var regexp = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
     __proto__: null,
     emailRegExp: emailRegExp,
@@ -70,7 +71,8 @@ var __spreadValues = function __spreadValues(a, b) {
     IDCardNoRegExp: IDCardNoRegExp,
     strongPasswordExp: strongPasswordExp,
     positiveRN2DExp: positiveRN2DExp,
-    positiveRN3DExp: positiveRN3DExp
+    positiveRN3DExp: positiveRN3DExp,
+    fileExtExp: fileExtExp
   }, Symbol.toStringTag, {
     value: "Module"
   }));
@@ -498,7 +500,21 @@ var __spreadValues = function __spreadValues(a, b) {
   }, Symbol.toStringTag, {
     value: "Module"
   }));
+
+  function getFileExtension(filePath) {
+    var _a;
+
+    return (_a = fileExtExp.exec(String(filePath))) == null ? void 0 : _a[1];
+  }
+
+  var getter = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
+    __proto__: null,
+    getFileExtension: getFileExtension
+  }, Symbol.toStringTag, {
+    value: "Module"
+  }));
   exports2.formatter = formatter;
+  exports2.getter = getter;
   exports2.regexp = regexp;
   exports2.validator = validator;
   Object.defineProperties(exports2, _defineProperty({

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.validator = exports.regexp = exports.formatter = void 0;
+exports.validator = exports.regexp = exports.getter = exports.formatter = void 0;
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -59,6 +59,7 @@ var IDCardNoRegExp = /^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10
 var strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,16}$/;
 var positiveRN2DExp = /^[0-9]+(.[0-9]{1,2})?$/;
 var positiveRN3DExp = /^[0-9]+(.[0-9]{1,3})?$/;
+var fileExtExp = /(?:\.([^.]+))?$/;
 var regexp = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
   __proto__: null,
   emailRegExp: emailRegExp,
@@ -68,7 +69,8 @@ var regexp = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty(
   IDCardNoRegExp: IDCardNoRegExp,
   strongPasswordExp: strongPasswordExp,
   positiveRN2DExp: positiveRN2DExp,
-  positiveRN3DExp: positiveRN3DExp
+  positiveRN3DExp: positiveRN3DExp,
+  fileExtExp: fileExtExp
 }, Symbol.toStringTag, {
   value: "Module"
 }));
@@ -499,3 +501,17 @@ var formatter = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProper
   value: "Module"
 }));
 exports.formatter = formatter;
+
+function getFileExtension(filePath) {
+  var _a;
+
+  return (_a = fileExtExp.exec(String(filePath))) == null ? void 0 : _a[1];
+}
+
+var getter = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
+  __proto__: null,
+  getFileExtension: getFileExtension
+}, Symbol.toStringTag, {
+  value: "Module"
+}));
+exports.getter = getter;

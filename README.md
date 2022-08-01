@@ -20,6 +20,7 @@
       - [regexp.strongPasswordExp](#regexpstrongpasswordexp)
       - [regexp.positiveRN2DExp](#regexppositivern2dexp)
       - [regexp.positiveRN3DExp](#regexppositivern3dexp)
+      - [regexp.fileExtExp](#regexpfileextexp)
     - [validator](#validator)
       - [validator.checkEmail()](#validatorcheckemail)
       - [validator.checkNumberPlate()](#validatorchecknumberplate)
@@ -31,6 +32,8 @@
     - [formatter](#formatter)
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
+    - [getter](#getter)
+      - [getter.getFileExtension()](#gettergetfileextension)
   - [Test](#test)
   - [Compabilities](#compabilities)
     - [Runtime Environment](#runtime-environment)
@@ -130,6 +133,12 @@ regexp.positiveRN2DExp.test('1.23');
 - Example
 ```js
 regexp.positiveRN3DExp.test('1.234');
+```
+
+#### regexp.fileExtExp
+- Example
+```js
+regexp.fileExtExp.exec('file.jpg')[1]; // jpg
 ```
 
 ### validator
@@ -294,6 +303,26 @@ function formatThousandSeparator(number?: number | string, options?: Intl.Number
 ```js
 formatter.formatThousandSeparator(123456789.01); // 123,456,789.01
 formatter.formatThousandSeparator(123456789.23456, { maximumFractionDigits: 3, }); // 123,456,789.235
+```
+
+### getter
+
+获取函数
+
+#### getter.getFileExtension()
+- Type
+```js
+/**
+ * 获取文件后缀名
+ * @param filePath  文件路径
+ * @returns         文件后缀名, 如: jpg, ppt, etc. 若未获取到, 则返回 undefined
+ */
+function getFileExtension(filePath: string | undefined | null): string;
+```
+- Example
+```js
+getter.getFileExtension('file.name.with.dots.txt'); // txt
+getter.getFileExtension('file-with-no-extention'); // undefined
 ```
 
 ## Test

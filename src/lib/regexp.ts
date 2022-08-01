@@ -114,3 +114,10 @@ export const positiveRN2DExp = /^[0-9]+(.[0-9]{1,2})?$/;
  * @description 至多包含3位小数
  */
 export const positiveRN3DExp = /^[0-9]+(.[0-9]{1,3})?$/;
+
+/**
+ * 文件后缀名
+ * 
+ * @see {@link https://stackoverflow.com/a/680982/2630689}
+ */
+export const fileExtExp = /(?:\.([^.]+))?$/;

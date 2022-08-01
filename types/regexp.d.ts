@@ -106,4 +106,10 @@ export declare const positiveRN2DExp: RegExp;
  * @description 至多包含3位小数
  */
 export declare const positiveRN3DExp: RegExp;
+/**
+ * 文件后缀名
+ *
+ * @see {@link https://stackoverflow.com/a/680982/2630689}
+ */
+export declare const fileExtExp: RegExp;
 //# sourceMappingURL=regexp.d.ts.map
