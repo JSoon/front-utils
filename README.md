@@ -1,6 +1,6 @@
 # rtfc-utils
 
-工具类函数: 与业务无关，包括且不限于：公共方法、正则表达式等工具类API。
+工具类函数: 与业务无关, 包括且不限于: 公共方法, 正则表达式等工具类API.
 
 ## Contents
 
@@ -11,6 +11,8 @@
     - [Browser](#browser)
     - [ES Module](#es-module)
   - [API](#api)
+    - [enums](#enums)
+      - [FileExtMimeMap](#fileextmimemap)
     - [regexp](#regexp)
       - [regexp.emailExp](#regexpemailexp)
       - [regexp.normalPlateRegExp](#regexpnormalplateregexp)
@@ -34,6 +36,7 @@
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
     - [getter](#getter)
       - [getter.getFileExtension()](#gettergetfileextension)
+      - [getter.getMimeByFileExtension()](#gettergetmimebyfileextension)
   - [Test](#test)
   - [Compabilities](#compabilities)
     - [Runtime Environment](#runtime-environment)
@@ -82,6 +85,17 @@ validator.checkEmail('a.b@qq.com');
 ```
 
 ## API
+
+### enums
+
+常量枚举
+
+#### FileExtMimeMap
+- Example
+```js
+enums.FileExtMimeMap['jpg']; // image/jpeg
+enums.FileExtMimeMap['ppt']; // application/vnd.ms-powerpoint
+```
 
 ### regexp
 
@@ -317,12 +331,28 @@ formatter.formatThousandSeparator(123456789.23456, { maximumFractionDigits: 3, }
  * @param filePath  文件路径
  * @returns         文件后缀名, 如: jpg, ppt, etc. 若未获取到, 则返回 undefined
  */
-function getFileExtension(filePath: string | undefined | null): string;
+function getFileExtension(filePath: string): string;
 ```
 - Example
 ```js
 getter.getFileExtension('file.name.with.dots.txt'); // txt
 getter.getFileExtension('file-with-no-extention'); // undefined
+```
+
+#### getter.getMimeByFileExtension()
+- Type
+```js
+/**
+ * 获取文件MIME类型
+ * @param ext 文件后缀名
+ * @returns   MIME
+ */
+function getMimeByFileExtension(ext: string): string;
+```
+- Example
+```js
+getter.getMimeByFileExtension('pptx'); // application/vnd.openxmlformats-officedocument.presentationml.presentation
+getter.getMimeByFileExtension('graffle'); // undefined
 ```
 
 ## Test
