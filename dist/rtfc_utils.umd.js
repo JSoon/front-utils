@@ -113,6 +113,11 @@ var __spreadValues = function __spreadValues(a, b) {
     return positiveRN3DExp.test(numberString);
   }
 
+  function checkNumberString(numberString, maxLength) {
+    var reg = maxLength ? new RegExp("^\\d{0,".concat(maxLength, "}$")) : /^\d*$/;
+    return reg.test(numberString);
+  }
+
   var validator = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
     __proto__: null,
     checkEmail: checkEmail,
@@ -121,7 +126,8 @@ var __spreadValues = function __spreadValues(a, b) {
     checkIDCardNo: checkIDCardNo,
     checkStrongPassword: checkStrongPassword,
     checkPositiveRN2Exp: checkPositiveRN2Exp,
-    checkPositiveRN3Exp: checkPositiveRN3Exp
+    checkPositiveRN3Exp: checkPositiveRN3Exp,
+    checkNumberString: checkNumberString
   }, Symbol.toStringTag, {
     value: "Module"
   }));

@@ -36,4 +36,10 @@ export declare function checkPositiveRN2Exp(numberString: string): boolean;
  * @param numberString 数字字符串
  */
 export declare function checkPositiveRN3Exp(numberString: string): boolean;
+/**
+ * 校验是否是数字字符串
+ * @param numberString 数字字符串
+ * @param maxLength 最大长度
+ */
+export declare function checkNumberString(numberString: string, maxLength?: number): boolean;
 //# sourceMappingURL=validator.d.ts.map

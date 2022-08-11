@@ -75,3 +75,13 @@ export function checkPositiveRN2Exp (numberString: string) {
 export function checkPositiveRN3Exp (numberString: string) {
   return positiveRN3DExp.test(numberString);
 }
+
+/**
+ * 校验是否是数字字符串
+ * @param numberString 数字字符串
+ * @param maxLength 最大长度
+ */
+export function checkNumberString (numberString: string, maxLength?: number) {
+  const reg = maxLength ? new RegExp(`^\\d{0,${maxLength}}$`) : /^\d*$/;
+  return reg.test(numberString);
+}

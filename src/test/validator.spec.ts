@@ -1,5 +1,5 @@
 import { assert, } from 'chai';
-import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, checkPositiveRN2Exp, checkPositiveRN3Exp, checkStrongPassword, } from '@/lib/validator';
+import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, checkNumberString, checkPositiveRN2Exp, checkPositiveRN3Exp, checkStrongPassword, } from '@/lib/validator';
 
 suite('validator.ts', function () {
   /**
@@ -209,6 +209,31 @@ suite('validator.ts', function () {
       assert.equal(checkPositiveRN3Exp('.1'), false);
       assert.equal(checkPositiveRN3Exp('0.0000'), false);
       assert.equal(checkPositiveRN3Exp('123.4567'), false);
+    });
+  });
+
+  /**
+   * 数字字符串测试
+   */
+  suite('#checkNumberString()', function () {
+    test('Should return true', function () {
+      assert.equal(checkNumberString('1234567890'), true);
+      assert.equal(checkNumberString('0000'), true);
+      assert.equal(checkNumberString(''), true);
+      assert.equal(checkNumberString('', 0), true);
+      assert.equal(checkNumberString('12345', 0), true);
+      assert.equal(checkNumberString('', 5), true);
+      assert.equal(checkNumberString('123', 5), true);
+      assert.equal(checkNumberString('12345', 5), true);
+    });
+    test('Should return false', function () {
+      assert.equal(checkNumberString('~!@#$'), false);
+      assert.equal(checkNumberString('123.'), false);
+      assert.equal(checkNumberString('123a'), false);
+      assert.equal(checkNumberString('123!@#'), false);
+      assert.equal(checkNumberString('123!@#', 6), false);
+      assert.equal(checkNumberString('0000', 3), false);
+      assert.equal(checkNumberString('1234567', 6), false);
     });
   });
 });

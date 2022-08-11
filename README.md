@@ -31,6 +31,7 @@
       - [validator.checkStrongPassword()](#validatorcheckstrongpassword)
       - [validator.checkPositiveRN2Exp()](#validatorcheckpositivern2exp)
       - [validator.checkPositiveRN3Exp()](#validatorcheckpositivern3exp)
+      - [validator.checkNumberString()](#validatorchecknumberstring)
     - [formatter](#formatter)
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
@@ -261,6 +262,23 @@ function checkPositiveRN3Exp(numberString: string): boolean;
 ```js
 validator.checkPositiveRN3Exp('123.456'); // true
 validator.checkPositiveRN3Exp('123.4567'); // false
+```
+
+#### validator.checkNumberString()
+- Type
+```js
+/**
+ * 校验是否是数字字符串
+ * @param numberString 数字字符串
+ * @param maxLength 最大长度
+ */
+function checkNumberString(numberString: string, maxLength?: number): boolean;
+```
+- Example
+```js
+checkNumberString('1234567890'); // true
+checkNumberString('12345', 5); // true
+checkNumberString('123.'); // false
 ```
 
 ### formatter
