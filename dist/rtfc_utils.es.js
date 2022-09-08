@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.validator = exports.regexp = exports.getter = exports.formatter = exports.enums = void 0;
+exports.validator = exports.regexp = exports.getter = exports.formatter = exports.enums = exports.detector = void 0;
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -574,3 +574,15 @@ var getter = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty(
   value: "Module"
 }));
 exports.getter = getter;
+var isElectron = window.navigator.userAgent.toLowerCase().includes("electron");
+var isWindows = window.navigator.userAgent.toLowerCase().includes("windows nt");
+var isMacOS = window.navigator.userAgent.toLowerCase().includes("macintosh");
+var detector = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
+  __proto__: null,
+  isElectron: isElectron,
+  isWindows: isWindows,
+  isMacOS: isMacOS
+}, Symbol.toStringTag, {
+  value: "Module"
+}));
+exports.detector = detector;

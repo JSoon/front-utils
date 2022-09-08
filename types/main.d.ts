@@ -3,5 +3,6 @@ import * as validator from './validator';
 import * as formatter from './formatter';
 import * as enums from './enums';
 import * as getter from './getter';
-export { regexp, validator, formatter, enums, getter, };
+import * as detector from './detector';
+export { regexp, validator, formatter, enums, getter, detector, };
 //# sourceMappingURL=main.d.ts.map

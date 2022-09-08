@@ -38,6 +38,10 @@
     - [getter](#getter)
       - [getter.getFileExtension()](#gettergetfileextension)
       - [getter.getMimeByFileExtension()](#gettergetmimebyfileextension)
+    - [detector](#detector)
+      - [detector.isElectron](#detectoriselectron)
+      - [detector.isWindows](#detectoriswindows)
+      - [detector.isMacOS](#detectorismacos)
   - [Test](#test)
   - [Compabilities](#compabilities)
     - [Runtime Environment](#runtime-environment)
@@ -371,6 +375,43 @@ function getMimeByFileExtension(ext: string): string;
 ```js
 getter.getMimeByFileExtension('pptx'); // application/vnd.openxmlformats-officedocument.presentationml.presentation
 getter.getMimeByFileExtension('graffle'); // undefined
+```
+
+### detector
+
+运行环境检测器
+
+#### detector.isElectron
+- Type
+```js
+/**
+ * 是否是Electron应用
+ *
+ * @see {@link https://github.com/electron/electron/issues/2288#issuecomment-337858978}
+ */
+const isElectron: boolean;
+```
+
+#### detector.isWindows
+- Type
+```js
+/**
+ * 是否是Windows操作系统
+ *
+ * @see {@link https://en.wikipedia.org/wiki/Windows_NT}
+ */
+const isWindows: boolean;
+```
+
+#### detector.isMacOS
+- Type
+```js
+/**
+ * 是否是MacOS操作系统
+ *
+ * @see {@link https://en.wikipedia.org/wiki/Macintosh}
+ */
+const isMacOS: boolean;
 ```
 
 ## Test

@@ -571,6 +571,18 @@ var __spreadValues = function __spreadValues(a, b) {
   }, Symbol.toStringTag, {
     value: "Module"
   }));
+  var isElectron = window.navigator.userAgent.toLowerCase().includes("electron");
+  var isWindows = window.navigator.userAgent.toLowerCase().includes("windows nt");
+  var isMacOS = window.navigator.userAgent.toLowerCase().includes("macintosh");
+  var detector = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
+    __proto__: null,
+    isElectron: isElectron,
+    isWindows: isWindows,
+    isMacOS: isMacOS
+  }, Symbol.toStringTag, {
+    value: "Module"
+  }));
+  exports2.detector = detector;
   exports2.enums = enums;
   exports2.formatter = formatter;
   exports2.getter = getter;
