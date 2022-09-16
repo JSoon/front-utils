@@ -7,6 +7,8 @@
 - [rtfc-utils](#rtfc-utils)
   - [Contents](#contents)
   - [Installation](#installation)
+    - [配置仓库地址到 `.npmrc` 或者 `.yarnrc` 安装](#配置仓库地址到-npmrc-或者-yarnrc-安装)
+    - [命令行直接安装](#命令行直接安装)
   - [Usage](#usage)
     - [Browser](#browser)
     - [ES Module](#es-module)
@@ -50,15 +52,39 @@
 
 ## Installation
 
+### 配置仓库地址到 `.npmrc` 或者 `.yarnrc` 安装
+
+> 推荐通过这种方式进行安装.
+
+```bash
+# .npmrc / .yarnrc
+@front-utils:registry=http://10.128.64.245:4873
+```
+
+再执行命令行:
+
 ```bash
 # pnpm
-pnpm add --registry http://10.0.60.84:4873 @front-utils/rtfc-utils
+pnpm add @front-utils/rtfc-utils
 
 # yarn
-yarn add --registry http://10.0.60.84:4873 @front-utils/rtfc-utils
+yarn add @front-utils/rtfc-utils
 
 # npm
-npm i --registry http://10.0.60.84:4873 @front-utils/rtfc-utils
+npm i @front-utils/rtfc-utils
+```
+
+### 命令行直接安装
+
+```bash
+# pnpm
+pnpm add --registry http://10.128.64.245:4873 @front-utils/rtfc-utils
+
+# yarn
+yarn add --registry http://10.128.64.245:4873 @front-utils/rtfc-utils
+
+# npm
+npm i --registry http://10.128.64.245:4873 @front-utils/rtfc-utils
 ```
 
 ## Usage
