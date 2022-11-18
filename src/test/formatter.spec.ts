@@ -1,5 +1,5 @@
+import { suite, test, assert, } from 'vitest';
 import { formatDatetime, formatThousandSeparator, } from '@/lib/formatter';
-import { assert, } from 'chai';
 
 suite('formatter.ts', function () {
   /**

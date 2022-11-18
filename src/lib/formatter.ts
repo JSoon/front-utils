@@ -13,12 +13,12 @@ import dayjs from 'dayjs';
  * @see {@link https://day.js.org/docs/en/display/format#list-of-all-available-formats}
  */
 export function formatDatetime ({
-  datetime = new Date(),
+  datetime = new Date,
   format = 'YYYY-MM-DD HH:mm:ss',
 }: {
   datetime?: dayjs.ConfigType
   format?: string
-} = {}) {
+}) {
   return dayjs(datetime).format(format);
 }
 

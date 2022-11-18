@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig, } from 'vite';
 import * as path from 'path';
 
@@ -17,5 +19,15 @@ export default defineConfig({
      * @see {@link https://github.com/vitejs/vite/issues/1639}
      */
     minify: false,
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  test: {
+    /* for example, use global to avoid globals imports (describe, test, expect): */
+    // globals: true,
+    environment: 'jsdom',
   },
 });

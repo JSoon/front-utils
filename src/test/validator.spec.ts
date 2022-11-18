@@ -1,4 +1,4 @@
-import { assert, } from 'chai';
+import { suite, test, assert, } from 'vitest';
 import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, checkNumberString, checkPositiveRN2Exp, checkPositiveRN3Exp, checkStrongPassword, } from '@/lib/validator';
 
 suite('validator.ts', function () {

@@ -1,5 +1,5 @@
+import { suite, test, assert, } from 'vitest';
 import { getFileExtension,  getMimeByFileExtension, } from '@/lib/getter';
-import { assert, } from 'chai';
 
 suite('getter.ts', function () {
   /**
