@@ -2,7 +2,7 @@
  * 验证器
  */
 
-import { emailRegExp, IDCardNoRegExp, mobileRegExp, newEnergyPlateRegExp, normalPlateRegExp, positiveRN2DExp, positiveRN3DExp, strongPasswordExp, } from './regexp';
+import { emailRegExp, IDCardNoRegExp, ipv4Exp, ipv6Exp, mobileRegExp, newEnergyPlateRegExp, normalPlateRegExp, positiveRN2DExp, positiveRN3DExp, strongPasswordExp, urlExp, } from './regexp';
 
 /**
  * 校验电子邮箱地址是否合法
@@ -84,4 +84,28 @@ export function checkPositiveRN3Exp (numberString: string) {
 export function checkNumberString (numberString: string, maxLength?: number) {
   const reg = maxLength ? new RegExp(`^\\d{0,${maxLength}}$`) : /^\d*$/;
   return reg.test(numberString);
+}
+
+/**
+ * 校验是否是ipv4地址
+ * @param ipAddress IP地址字符串
+ */
+export function checkIPv4 (ipAddress: string) {
+  return ipv4Exp.test(ipAddress);
+}
+
+/**
+ * 校验是否是ipv6地址
+ * @param ipAddress IP地址字符串
+ */
+export function checkIPv6 (ipAddress: string) {
+  return ipv6Exp.test(ipAddress);
+}
+
+/**
+ * 校验是否是URL地址
+ * @param url URL地址字符串
+ */
+export function checkURL (url: string) {
+  return urlExp.test(url);
 }

@@ -1,5 +1,8 @@
 /**
  * 正则表达式
+ * 
+ * 验证网站:
+ * @see {@link https://regex101.com/}
  */
 
 /**
@@ -96,6 +99,7 @@ export const IDCardNoRegExp = /^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2]
  * - 总长度8到16位
  * 
  * @see {@link https://stackoverflow.com/a/59117568/2630689}
+ * @see {@link https://uibakery.io/regex-library/password}
  */
 export const strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,16}$/;
 
@@ -121,3 +125,36 @@ export const positiveRN3DExp = /^[0-9]+(.[0-9]{1,3})?$/;
  * @see {@link https://stackoverflow.com/a/680982/2630689}
  */
 export const fileExtExp = /(?:\.([^.]+))?$/;
+
+/**
+ * ipv4
+ * 
+ * @description 弱校验, 仅校验格式, 不保证合理性和存在性
+ * 
+ * @see {@link https://uibakery.io/regex-library/ip-address}
+ */
+export const ipv4Exp = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+/**
+ * ipv6
+ * 
+ * @description 弱校验, 仅校验格式, 不保证合理性和存在性
+ * 
+ * @see {@link https://uibakery.io/regex-library/ip-address}
+ */
+export const ipv6Exp = /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/;
+
+/**
+ * URL地址
+ * 
+ * @description 弱校验, 仅校验格式, 不保证合理性和存在性
+ * 
+ * @see {@link https://uibakery.io/regex-library/url}
+ * @see {@link https://stackoverflow.com/questions/30970068/js-regex-url-validation}
+ * @see {@link https://snyk.io/blog/secure-javascript-url-validation/}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Location}
+ * 
+ * 更严格的校验可考虑URL, 参考:
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/URL/URL}
+ */
+export const urlExp = /^(?:https?:\/\/)?(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)$/;

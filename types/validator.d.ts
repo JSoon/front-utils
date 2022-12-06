@@ -42,4 +42,19 @@ export declare function checkPositiveRN3Exp(numberString: string): boolean;
  * @param maxLength 最大长度
  */
 export declare function checkNumberString(numberString: string, maxLength?: number): boolean;
+/**
+ * 校验是否是ipv4地址
+ * @param ipAddress IP地址字符串
+ */
+export declare function checkIPv4(ipAddress: string): boolean;
+/**
+ * 校验是否是ipv6地址
+ * @param ipAddress IP地址字符串
+ */
+export declare function checkIPv6(ipAddress: string): boolean;
+/**
+ * 校验是否是URL地址
+ * @param url URL地址字符串
+ */
+export declare function checkURL(url: string): boolean;
 //# sourceMappingURL=validator.d.ts.map

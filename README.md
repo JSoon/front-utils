@@ -34,6 +34,9 @@
       - [validator.checkPositiveRN2Exp()](#validatorcheckpositivern2exp)
       - [validator.checkPositiveRN3Exp()](#validatorcheckpositivern3exp)
       - [validator.checkNumberString()](#validatorchecknumberstring)
+      - [validator.checkIPv4()](#validatorcheckipv4)
+      - [validator.checkIPv6()](#validatorcheckipv6)
+      - [validator.checkURL()](#validatorcheckurl)
     - [formatter](#formatter)
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
@@ -311,6 +314,55 @@ checkNumberString('12345', 5); // true
 checkNumberString('123.'); // false
 ```
 
+#### validator.checkIPv4()
+- Type
+```js
+/**
+ * 校验是否是ipv4地址
+ * @param ipAddress IP地址字符串
+ */
+function checkIPv4(ipAddress: string): boolean;
+```
+- Example
+```js
+checkIPv4('253.123.61.198'); // true
+checkIPv4('128.145.158.124'); // true
+checkIPv4('a.b.c.100'); // false
+```
+
+#### validator.checkIPv6()
+- Type
+```js
+/**
+ * 校验是否是ipv6地址
+ * @param ipAddress IP地址字符串
+ */
+function checkIPv6(ipAddress: string): boolean;
+```
+- Example
+```js
+checkIPv6('91a7:742d:805d:03a7:f413:b182:7de9:adea'); // true
+checkIPv6('::ffff:808:808'); // true
+checkIPv6('230.222.192.224'); // false
+```
+
+#### validator.checkURL()
+- Type
+```js
+/**
+ * 校验是否是URL地址
+ * @param url URL地址字符串
+ */
+function checkURL(url: string): boolean;
+```
+- Example
+```js
+checkURL('http://foo.com/blah_blah'); // true
+checkURL('http://142.42.1.1/'); // true
+checkURL('foo.com'); // true
+checkURL('http://../'); // false
+```
+
 ### formatter
 
 格式化函数
@@ -444,10 +496,10 @@ const isMacOS: boolean;
 
 ```bash
 # 单元测试
-pnpm test
+pnpm run test
 
-# 打开测试报告
-pnpm reporter
+# 覆盖性测试
+pnpm run coverage
 ```
 
 ## Compabilities

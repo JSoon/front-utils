@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
  *
  * @see {@link https://day.js.org/docs/en/display/format#list-of-all-available-formats}
  */
-export declare function formatDatetime({ datetime, format, }?: {
+export declare function formatDatetime({ datetime, format, }: {
     datetime?: dayjs.ConfigType;
     format?: string;
 }): string;

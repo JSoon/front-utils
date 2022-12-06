@@ -60,6 +60,9 @@ var strongPasswordExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*]).{8,
 var positiveRN2DExp = /^[0-9]+(.[0-9]{1,2})?$/;
 var positiveRN3DExp = /^[0-9]+(.[0-9]{1,3})?$/;
 var fileExtExp = /(?:\.([^.]+))?$/;
+var ipv4Exp = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+var ipv6Exp = /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/;
+var urlExp = /^(?:https?:\/\/)?(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)$/;
 var regexp = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
   __proto__: null,
   emailRegExp: emailRegExp,
@@ -70,7 +73,10 @@ var regexp = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty(
   strongPasswordExp: strongPasswordExp,
   positiveRN2DExp: positiveRN2DExp,
   positiveRN3DExp: positiveRN3DExp,
-  fileExtExp: fileExtExp
+  fileExtExp: fileExtExp,
+  ipv4Exp: ipv4Exp,
+  ipv6Exp: ipv6Exp,
+  urlExp: urlExp
 }, Symbol.toStringTag, {
   value: "Module"
 }));
@@ -117,6 +123,18 @@ function checkNumberString(numberString, maxLength) {
   return reg.test(numberString);
 }
 
+function checkIPv4(ipAddress) {
+  return ipv4Exp.test(ipAddress);
+}
+
+function checkIPv6(ipAddress) {
+  return ipv6Exp.test(ipAddress);
+}
+
+function checkURL(url) {
+  return urlExp.test(url);
+}
+
 var validator = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
   __proto__: null,
   checkEmail: checkEmail,
@@ -126,7 +144,10 @@ var validator = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProper
   checkStrongPassword: checkStrongPassword,
   checkPositiveRN2Exp: checkPositiveRN2Exp,
   checkPositiveRN3Exp: checkPositiveRN3Exp,
-  checkNumberString: checkNumberString
+  checkNumberString: checkNumberString,
+  checkIPv4: checkIPv4,
+  checkIPv6: checkIPv6,
+  checkURL: checkURL
 }, Symbol.toStringTag, {
   value: "Module"
 }));
@@ -471,13 +492,11 @@ var dayjs_min = {
 
 var dayjs = dayjs_min.exports;
 
-function formatDatetime() {
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      _ref$datetime = _ref.datetime,
+function formatDatetime(_ref) {
+  var _ref$datetime = _ref.datetime,
       datetime = _ref$datetime === void 0 ? new Date() : _ref$datetime,
       _ref$format = _ref.format,
       format = _ref$format === void 0 ? "YYYY-MM-DD HH:mm:ss" : _ref$format;
-
   return dayjs(datetime).format(format);
 }
 

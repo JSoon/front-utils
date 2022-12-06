@@ -1,5 +1,8 @@
 /**
  * 正则表达式
+ *
+ * 验证网站:
+ * @see {@link https://regex101.com/}
  */
 /**
  * 电子邮箱地址
@@ -90,6 +93,7 @@ export declare const IDCardNoRegExp: RegExp;
  * - 总长度8到16位
  *
  * @see {@link https://stackoverflow.com/a/59117568/2630689}
+ * @see {@link https://uibakery.io/regex-library/password}
  */
 export declare const strongPasswordExp: RegExp;
 /**
@@ -112,4 +116,34 @@ export declare const positiveRN3DExp: RegExp;
  * @see {@link https://stackoverflow.com/a/680982/2630689}
  */
 export declare const fileExtExp: RegExp;
+/**
+ * ipv4
+ *
+ * @description 弱校验, 仅校验格式, 不保证合理性和存在性
+ *
+ * @see {@link https://uibakery.io/regex-library/ip-address}
+ */
+export declare const ipv4Exp: RegExp;
+/**
+ * ipv6
+ *
+ * @description 弱校验, 仅校验格式, 不保证合理性和存在性
+ *
+ * @see {@link https://uibakery.io/regex-library/ip-address}
+ */
+export declare const ipv6Exp: RegExp;
+/**
+ * URL地址
+ *
+ * @description 弱校验, 仅校验格式, 不保证合理性和存在性
+ *
+ * @see {@link https://uibakery.io/regex-library/url}
+ * @see {@link https://stackoverflow.com/questions/30970068/js-regex-url-validation}
+ * @see {@link https://snyk.io/blog/secure-javascript-url-validation/}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Location}
+ *
+ * 更严格的校验可考虑URL, 参考:
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/URL/URL}
+ */
+export declare const urlExp: RegExp;
 //# sourceMappingURL=regexp.d.ts.map

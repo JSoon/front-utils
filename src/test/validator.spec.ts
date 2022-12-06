@@ -1,5 +1,5 @@
 import { suite, test, assert, } from 'vitest';
-import { checkEmail, checkIDCardNo, checkMobile, checkNumberPlate, checkNumberString, checkPositiveRN2Exp, checkPositiveRN3Exp, checkStrongPassword, } from '@/lib/validator';
+import { checkEmail, checkIDCardNo, checkIPv4, checkIPv6, checkMobile, checkNumberPlate, checkNumberString, checkPositiveRN2Exp, checkPositiveRN3Exp, checkStrongPassword, checkURL, } from '@/lib/validator';
 
 suite('validator.ts', function () {
   /**
@@ -234,6 +234,135 @@ suite('validator.ts', function () {
       assert.equal(checkNumberString('123!@#', 6), false);
       assert.equal(checkNumberString('0000', 3), false);
       assert.equal(checkNumberString('1234567', 6), false);
+    });
+  });
+
+  /**
+   * IPv4地址测试
+   */
+  suite('#checkIPv4()', function () {
+    test('Should return true', function () {
+      assert.equal(checkIPv4('253.123.61.198'), true);
+      assert.equal(checkIPv4('128.145.158.124'), true);
+      assert.equal(checkIPv4('215.97.240.181'), true);
+      assert.equal(checkIPv4('145.55.47.96'), true);
+      assert.equal(checkIPv4('31.70.79.103'), true);
+      assert.equal(checkIPv4('137.84.34.158'), true);
+      assert.equal(checkIPv4('253.123.61.198'), true);
+      assert.equal(checkIPv4('128.145.158.124'), true);
+      assert.equal(checkIPv4('137.84.34.158'), true);
+      assert.equal(checkIPv4('13.124.3.5'), true);
+      assert.equal(checkIPv4('128.145.158.124'), true);
+      assert.equal(checkIPv4('230.222.192.224'), true);
+    });
+    test('Should return false', function () {
+      assert.equal(checkIPv4('102'), false);
+      assert.equal(checkIPv4('102.52'), false);
+      assert.equal(checkIPv4('0.0.0'), false);
+      assert.equal(checkIPv4('a.b.c'), false);
+      assert.equal(checkIPv4('a.b.c.100'), false);
+      assert.equal(checkIPv4('12.34.56.oops'), false);
+      assert.equal(checkIPv4('256.0.0.0'), false);
+      assert.equal(checkIPv4('100.20.21.256'), false);
+      assert.equal(checkIPv4('345.0.24.6'), false);
+      assert.equal(checkIPv4('192.300.24.6'), false);
+      assert.equal(checkIPv4('256.255.255.255'), false);
+    });
+  });
+
+  /**
+   * IPv6地址测试
+   */
+  suite('#checkIPv6()', function () {
+    test('Should return true', function () {
+      assert.equal(checkIPv6('91a7:742d:805d:03a7:f413:b182:7de9:adea'), true);
+      assert.equal(checkIPv6('b371:497d:b9aa:9847:956a:f779:0a5e:2ff3'), true);
+      assert.equal(checkIPv6('084b:b66c:1479:524c:052b:2acd:6084:48a7'), true);
+      assert.equal(checkIPv6('668f:9385:afa0:bcdd:9f39:2f06:c22c:431a'), true);
+      assert.equal(checkIPv6('d53e:eef9:b0ef:c0d1:508a:d493:8a5d:a73d'), true);
+      assert.equal(checkIPv6('f784:9ded:c511:2fde:a3ad:c1d6:baf8:e906'), true);
+      assert.equal(checkIPv6('7835:0883:aa11:686a:98bd:b3bf:ccb7:f970'), true);
+      assert.equal(checkIPv6('4921:9e36:c31d:2da6:0d76:88ac:3176:1fc8'), true);
+      assert.equal(checkIPv6('630c:a1de:4421:5710:6eb6:11f4:175b:9413'), true);
+      assert.equal(checkIPv6('92ca:97e8:1f43:e49d:2300:45ae:ed40:7c13'), true);
+      assert.equal(checkIPv6('::ffff:808:808'), true);
+      assert.equal(checkIPv6('0:0:0:0:0:ffff:0808:0808'), true);
+    });
+    test('Should return false', function () {
+      assert.equal(checkIPv6('230.222.192.224'), false);
+      assert.equal(checkIPv6('::::'), false);
+      assert.equal(checkIPv6('1:2:3:4:5'), false);
+    });
+  });
+
+  /**
+   * URL地址测试
+   */
+  suite('#checkURL()', function () {
+    test('Should return true', function () {
+      assert.equal(checkURL('http://foo.com/blah_blah'), true);
+      assert.equal(checkURL('http://foo.com/blah_blah/'), true);
+      assert.equal(checkURL('http://foo.com/blah_blah_(wikipedia)'), true);
+      assert.equal(checkURL('http://foo.com/blah_blah_(wikipedia)_(again)'), true);
+      assert.equal(checkURL('http://www.example.com/wpstyle/?p=364'), true);
+      assert.equal(checkURL('https://www.example.com/foo/?bar=baz&inga=42&quux'), true);
+      assert.equal(checkURL('http://userid:password@example.com:8080'), true);
+      assert.equal(checkURL('http://userid:password@example.com:8080/'), true);
+      assert.equal(checkURL('http://userid@example.com'), true);
+      assert.equal(checkURL('http://userid@example.com/'), true);
+      assert.equal(checkURL('http://userid@example.com:8080'), true);
+      assert.equal(checkURL('http://userid@example.com:8080/'), true);
+      assert.equal(checkURL('http://userid:password@example.com'), true);
+      assert.equal(checkURL('http://userid:password@example.com/'), true);
+      assert.equal(checkURL('http://142.42.1.1/'), true);
+      assert.equal(checkURL('http://142.42.1.1:8080/'), true);
+      assert.equal(checkURL('http://foo.com/blah_(wikipedia)#cite-1'), true);
+      assert.equal(checkURL('http://foo.com/blah_(wikipedia)_blah#cite-1'), true);
+      assert.equal(checkURL('http://foo.com/(something)?after=parens'), true);
+      assert.equal(checkURL('http://code.google.com/events/#&product=browser'), true);
+      assert.equal(checkURL('http://j.mp'), true);
+      assert.equal(checkURL('http://foo.bar/?q=Test%20URL-encoded%20stuff'), true);
+      assert.equal(checkURL('http://1337.net'), true);
+      assert.equal(checkURL('http://a.b-c.de'), true);
+      assert.equal(checkURL('http://223.255.255.254'), true);
+      assert.equal(checkURL('foo.com'), true);
+      assert.equal(checkURL('a@b.cc'), true);
+      assert.equal(checkURL('soon~.xyz'), true);
+    });
+    test('Should return false', function () {
+      assert.equal(checkURL('http://'), false);
+      assert.equal(checkURL('http://.'), false);
+      assert.equal(checkURL('http://..'), false);
+      assert.equal(checkURL('http://../'), false);
+      assert.equal(checkURL('http://?'), false);
+      assert.equal(checkURL('http://??'), false);
+      assert.equal(checkURL('http://??/'), false);
+      assert.equal(checkURL('http://#'), false);
+      assert.equal(checkURL('http://##'), false);
+      assert.equal(checkURL('http://##/'), false);
+      assert.equal(checkURL('http://foo.bar?q=Spaces should be encoded'), false);
+      assert.equal(checkURL('//'), false);
+      assert.equal(checkURL('//a'), false);
+      assert.equal(checkURL('///a'), false);
+      assert.equal(checkURL('///'), false);
+      assert.equal(checkURL('http:///a'), false);
+      assert.equal(checkURL('rdar://1234'), false);
+      assert.equal(checkURL('h://test'), false);
+      assert.equal(checkURL('http:// shouldfail.com'), false);
+      assert.equal(checkURL(':// should fail'), false);
+      assert.equal(checkURL('http://foo.bar/foo(bar)baz quux'), false);
+      assert.equal(checkURL('ftps://foo.bar/'), false);
+      assert.equal(checkURL('http://✪df.ws/123'), false);
+      assert.equal(checkURL('http://➡.ws/䨹'), false);
+      assert.equal(checkURL('http://⌘.ws'), false);
+      assert.equal(checkURL('http://⌘.ws/'), false);
+      assert.equal(checkURL('http://foo.com/unicode_(✪)_in_parens'), false);
+      assert.equal(checkURL('http://☺.damowmow.com/'), false);
+      assert.equal(checkURL('ftp://foo.bar/baz'), false);
+      assert.equal(checkURL('http://مثال.إختبار'), false);
+      assert.equal(checkURL('http://例子.测试'), false);
+      assert.equal(checkURL('http://उदाहरण.परीक्षा'), false);
+      assert.equal(checkURL('http://-.~_!$&\'()*+,;=:%40:80%2f::::::@example.com'), false);
     });
   });
 });
