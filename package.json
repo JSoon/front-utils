@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint --ext .js,.ts --fix src",
     "test": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "publish": "npm publish --public"
   },
   "engines": {
     "node": "^14.19.0"
