@@ -44,7 +44,8 @@ export function formatThousandSeparator (number: number | string = 0, options: I
   }
   return number.toLocaleString('zh-CN', {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options
-    maximumFractionDigits: 2,
+    useGrouping: true, // 是否显示千分位分组（即逗号分隔符）
+    maximumFractionDigits: 2, // 最大小数位
     ...options,
   });
 }
