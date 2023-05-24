@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1670305689448" clover="3.2.0">
-  <project timestamp="1670305689449" name="All files">
-    <metrics statements="400" coveredstatements="400" conditionals="55" coveredconditionals="55" methods="43" coveredmethods="43" elements="498" coveredelements="498" complexity="0" loc="400" ncloc="400" packages="1" files="5" classes="5"/>
+<coverage generated="1684913396336" clover="3.2.0">
+  <project timestamp="1684913396337" name="All files">
+    <metrics statements="458" coveredstatements="458" conditionals="61" coveredconditionals="61" methods="46" coveredmethods="46" elements="565" coveredelements="565" complexity="0" loc="458" ncloc="458" packages="1" files="5" classes="5"/>
     <file name="enums.ts" path="/Users/soon/__rtwl__/repositories/rtfc-utils/src/lib/enums.ts">
       <metrics statements="55" coveredstatements="55" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
@@ -61,7 +61,7 @@
       <line num="55" count="5" type="cond" truecount="1" falsecount="0"/>
     </file>
     <file name="formatter.ts" path="/Users/soon/__rtwl__/repositories/rtfc-utils/src/lib/formatter.ts">
-      <metrics statements="50" coveredstatements="50" conditionals="9" coveredconditionals="9" methods="4" coveredmethods="4"/>
+      <metrics statements="51" coveredstatements="51" conditionals="9" coveredconditionals="9" methods="4" coveredmethods="4"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -111,10 +111,11 @@
       <line num="47" count="12" type="stmt"/>
       <line num="48" count="12" type="stmt"/>
       <line num="49" count="12" type="stmt"/>
-      <line num="50" count="15" type="cond" truecount="1" falsecount="0"/>
+      <line num="50" count="12" type="stmt"/>
+      <line num="51" count="15" type="cond" truecount="1" falsecount="0"/>
     </file>
     <file name="getter.ts" path="/Users/soon/__rtwl__/repositories/rtfc-utils/src/lib/getter.ts">
-      <metrics statements="24" coveredstatements="24" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <metrics statements="81" coveredstatements="81" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="7"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -127,18 +128,75 @@
       <line num="10" count="1" type="stmt"/>
       <line num="11" count="1" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
-      <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="14" count="6" type="stmt"/>
-      <line num="15" count="6" type="cond" truecount="1" falsecount="0"/>
-      <line num="16" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="6" type="stmt"/>
+      <line num="16" count="6" type="cond" truecount="1" falsecount="0"/>
       <line num="17" count="1" type="stmt"/>
       <line num="18" count="1" type="stmt"/>
       <line num="19" count="1" type="stmt"/>
       <line num="20" count="1" type="stmt"/>
       <line num="21" count="1" type="stmt"/>
-      <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="23" count="5" type="stmt"/>
-      <line num="24" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="24" count="5" type="stmt"/>
+      <line num="25" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="40" count="1" type="stmt"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="45" count="1" type="stmt"/>
+      <line num="46" count="1" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="49" count="1" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
+      <line num="52" count="1" type="stmt"/>
+      <line num="53" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="55" count="1" type="stmt"/>
+      <line num="56" count="1" type="stmt"/>
+      <line num="57" count="1" type="stmt"/>
+      <line num="58" count="1" type="stmt"/>
+      <line num="59" count="1" type="stmt"/>
+      <line num="60" count="1" type="stmt"/>
+      <line num="61" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="63" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="64" count="6" type="stmt"/>
+      <line num="65" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="66" count="21" type="stmt"/>
+      <line num="67" count="21" type="stmt"/>
+      <line num="68" count="21" type="stmt"/>
+      <line num="69" count="21" type="cond" truecount="2" falsecount="0"/>
+      <line num="70" count="13" type="stmt"/>
+      <line num="71" count="13" type="stmt"/>
+      <line num="72" count="13" type="stmt"/>
+      <line num="73" count="13" type="stmt"/>
+      <line num="74" count="21" type="cond" truecount="1" falsecount="0"/>
+      <line num="75" count="8" type="stmt"/>
+      <line num="76" count="8" type="stmt"/>
+      <line num="77" count="8" type="stmt"/>
+      <line num="78" count="8" type="stmt"/>
+      <line num="79" count="6" type="stmt"/>
+      <line num="80" count="6" type="stmt"/>
+      <line num="81" count="6" type="cond" truecount="1" falsecount="0"/>
     </file>
     <file name="regexp.ts" path="/Users/soon/__rtwl__/repositories/rtfc-utils/src/lib/regexp.ts">
       <metrics statements="160" coveredstatements="160" conditionals="12" coveredconditionals="12" methods="12" coveredmethods="12"/>

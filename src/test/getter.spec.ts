@@ -1,5 +1,5 @@
 import { suite, test, assert, } from 'vitest';
-import { getFileExtension,  getMimeByFileExtension, } from '@/lib/getter';
+import { getFileExtension,  getFlatObjectArray,  getMimeByFileExtension, } from '@/lib/getter';
 
 suite('getter.ts', function () {
   /**
@@ -27,6 +27,66 @@ suite('getter.ts', function () {
       assert.equal(getMimeByFileExtension('avi'), 'video/x-msvideo');
       assert.equal(getMimeByFileExtension('pptx'), 'application/vnd.openxmlformats-officedocument.presentationml.presentation');
       assert.equal(getMimeByFileExtension('graffle'), undefined);
+    });
+  });
+
+  /**
+   * 嵌套结构对象数组 -> 单层结构对象数组
+   */
+  suite('#getFlatItems()', function () {
+    test('Should be equal', function () {
+      assert.deepStrictEqual(getFlatObjectArray([
+        { name: 'Jisoo', age: 28, children: [{ name: 'Jennie', age: 27, }, { name: 'Rose', age: 26, }], },
+        { name: 'Lisa', age: 26, }
+      ]), [
+        { name: 'Jisoo', age: 28, },
+        { name: 'Jennie', age: 27, },
+        { name: 'Rose', age: 26, },
+        { name: 'Lisa', age: 26, }
+      ]);
+      assert.deepStrictEqual(getFlatObjectArray([
+        { name: 'Jisoo', age: 28, children: [{ name: 'Jennie', age: 27, }, { name: 'Rose', age: 26, }, { name: 'Lisa', age: 26, }], }
+      ], 'children'), [
+        { name: 'Jisoo', age: 28, },
+        { name: 'Jennie', age: 27, },
+        { name: 'Rose', age: 26, },
+        { name: 'Lisa', age: 26, }
+      ]);
+      assert.deepStrictEqual(getFlatObjectArray([
+        { name: 'Jisoo', age: 28, children: [{ name: 'Jennie', age: 27, children: [{ name: 'Lisa', age: 26, }], }, { name: 'Rose', age: 26, }], }
+      ]), [
+        { name: 'Jisoo', age: 28, },
+        { name: 'Jennie', age: 27, },
+        { name: 'Lisa', age: 26, },
+        { name: 'Rose', age: 26, }
+      ]);
+      assert.deepStrictEqual(getFlatObjectArray([
+        { name: 'Jisoo', age: 28, children: [{ name: 'Jennie', age: 27, children: [{ name: 'Lisa', age: 26, children: [{ name: 'Rose', age: 26, }], }], }], }
+      ]), [
+        { name: 'Jisoo', age: 28, },
+        { name: 'Jennie', age: 27, },
+        { name: 'Lisa', age: 26, },
+        { name: 'Rose', age: 26, }
+      ]);
+    });
+    test('Should be not equal', function () {
+      assert.notDeepEqual(getFlatObjectArray([
+        { name: 'Jisoo', age: 28, children: [{ name: 'Jennie', age: 27, }, { name: 'Rose', age: 26, }], },
+        { name: 'Lisa', age: 26, }
+      ]), [
+        { name: 'Jisoo', age: 28, },
+        { name: 'Lisa', age: 26, },
+        { name: 'Jennie', age: 27, },
+        { name: 'Rose', age: 26, }
+      ]);
+      assert.notDeepEqual(getFlatObjectArray([
+        { name: 'Jisoo', age: 28, children: [{ name: 'Jennie', age: 27, }, { name: 'Rose', age: 26, }, { name: 'Lisa', age: 26, }], }
+      ], 'parents'), [
+        { name: 'Jisoo', age: 28, },
+        { name: 'Jennie', age: 27, },
+        { name: 'Rose', age: 26, },
+        { name: 'Lisa', age: 26, }
+      ]);
     });
   });
 });

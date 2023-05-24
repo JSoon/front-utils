@@ -43,6 +43,7 @@
     - [getter](#getter)
       - [getter.getFileExtension()](#gettergetfileextension)
       - [getter.getMimeByFileExtension()](#gettergetmimebyfileextension)
+      - [getter.getFlatObjectArray()](#gettergetflatobjectarray)
     - [detector](#detector)
       - [detector.isElectron](#detectoriselectron)
       - [detector.isWindows](#detectoriswindows)
@@ -453,6 +454,55 @@ function getMimeByFileExtension(ext: string): string;
 ```js
 getter.getMimeByFileExtension('pptx'); // application/vnd.openxmlformats-officedocument.presentationml.presentation
 getter.getMimeByFileExtension('graffle'); // undefined
+```
+
+#### getter.getFlatObjectArray()
+- Type
+```js
+/**
+ * 将嵌套结构对象数组，转换为单层结构对象数组
+ * @param nestedArray 嵌套对象数组
+ * @param key         需要转换的对象属性名称
+ * @example
+ * [
+ *    {
+ *       name: 'foo',
+ *       age: 10,
+ *       children: [{
+ *         name: 'bar',
+ *         age: 20
+ *       }]
+ *    },
+ *    {
+ *       name: 'zoo',
+ *       age: 12
+ *    }
+ * ]
+ * 转换为:
+ * [
+ *    {
+ *       name: 'foo',
+ *       age: 10
+ *    },
+ *    {
+ *       name: 'bar',
+ *       age: 20
+ *    },
+ *    {
+ *       name: 'zoo',
+ *       age: 12
+ *    }
+ * ]
+ * @see {@link https://www.techighness.com/post/javascript-flatten-deeply-nested-array-of-objects-into-single-level-array/}
+ */
+function getFlatObjectArray(nestedArray: Record<string, any>[], key?: string): any[];
+```
+- Example
+```js
+getFlatObjectArray([
+  { name: 'Jisoo', age: 28, children: [{ name: 'Jennie', age: 27, }, { name: 'Rose', age: 26, }], },
+  { name: 'Lisa', age: 26, }
+]); // [{ name: 'Jisoo', age: 28, }, { name: 'Jennie', age: 27, }, { name: 'Rose', age: 26, }, { name: 'Lisa', age: 26, }]
 ```
 
 ### detector

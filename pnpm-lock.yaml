@@ -4,6 +4,7 @@ specifiers:
   '@babel/cli': ^7.18.6
   '@babel/core': ^7.18.6
   '@babel/preset-env': ^7.18.6
+  '@types/lodash': ^4.14.194
   '@types/node': ^18.0.3
   '@typescript-eslint/eslint-plugin': ^5.30.7
   '@typescript-eslint/parser': ^5.30.7
@@ -12,6 +13,7 @@ specifiers:
   dayjs: ^1.11.3
   eslint: ^8.20.0
   jsdom: ^20.0.0
+  lodash: ^4.17.21
   ts-node: ^10.8.2
   tsconfig-paths: ^4.0.0
   typescript: ^4.5.4
@@ -20,11 +22,13 @@ specifiers:
 
 dependencies:
   dayjs: 1.11.3
+  lodash: 4.17.21
 
 devDependencies:
   '@babel/cli': 7.18.6_@babel+core@7.18.6
   '@babel/core': 7.18.6
   '@babel/preset-env': 7.18.6_@babel+core@7.18.6
+  '@types/lodash': 4.14.194
   '@types/node': 18.0.3
   '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
   '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
@@ -1364,6 +1368,10 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash/4.14.194:
+    resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
     dev: true
 
   /@types/node/18.0.3:
@@ -2788,6 +2796,10 @@ packages:
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /loupe/2.3.4:
     resolution: {integrity: sha512-OvKfgCC2Ndby6aSTREl5aCCPTNIzlDfQZvZxNUrBrihDhL3xcrYegTblhmEiCrg2kKQz4XsFIaemE5BF4ybSaQ==}
