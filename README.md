@@ -564,7 +564,7 @@ All
 
 ### Browser Support
 
-[浏览器兼容性](https://github.com/JSoon/front-utils/blob/master/.browserslistrc)
+[浏览器兼容性](https://github.com/JSoon/front-utils/blob/main/.browserslistrc)
 
 ```browserslist
 # 完整格式请参考 https://github.com/browserslist/browserslist
