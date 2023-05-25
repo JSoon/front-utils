@@ -1,10 +1,10 @@
-# rtfc-utils
+# front-utils
 
 工具类函数: 与业务无关, 包括且不限于: 公共方法, 正则表达式等工具类API.
 
 ## Contents
 
-- [rtfc-utils](#rtfc-utils)
+- [front-utils](#front-utils)
   - [Contents](#contents)
   - [Installation](#installation)
     - [配置仓库地址到 `.npmrc` 或者 `.yarnrc` 安装](#配置仓库地址到-npmrc-或者-yarnrc-安装)
@@ -62,33 +62,33 @@
 
 ```bash
 # .npmrc / .yarnrc
-@front-utils:registry=http://10.128.64.245:4873
+@financial-freedom:registry=https://registry.npmmirror.com
 ```
 
 再执行命令行:
 
 ```bash
 # pnpm
-pnpm add @front-utils/rtfc-utils
+pnpm add @financial-freedom/front-utils
 
 # yarn
-yarn add @front-utils/rtfc-utils
+yarn add @financial-freedom/front-utils
 
 # npm
-npm i @front-utils/rtfc-utils
+npm i @financial-freedom/front-utils
 ```
 
 ### 命令行直接安装
 
 ```bash
 # pnpm
-pnpm add --registry http://10.128.64.245:4873 @front-utils/rtfc-utils
+pnpm add --registry https://registry.npmmirror.com @financial-freedom/front-utils
 
 # yarn
-yarn add --registry http://10.128.64.245:4873 @front-utils/rtfc-utils
+yarn add --registry https://registry.npmmirror.com @financial-freedom/front-utils
 
 # npm
-npm i --registry http://10.128.64.245:4873 @front-utils/rtfc-utils
+npm i --registry https://registry.npmmirror.com @financial-freedom/front-utils
 ```
 
 ## Usage
@@ -96,25 +96,25 @@ npm i --registry http://10.128.64.245:4873 @front-utils/rtfc-utils
 ### Browser
 
 ```html
-<script src="path/to/dist/rtfc_utils.umd.js"></script>
+<script src="path/to/dist/front_utils.umd.js"></script>
 
 <script>
-  rtfc_utils.validator.checkEmail('a.b@qq.com');
+  front_utils.validator.checkEmail('a.b@qq.com');
 </script>
 ```
 
 ### ES Module
 
 ```js
-import * as rtfcUtils from '@front-utils/rtfc-utils'
+import * as front_utils from '@financial-freedom/front-utils'
 
-rtfcUtils.validator.checkEmail('a.b@qq.com');
+front_utils.validator.checkEmail('a.b@qq.com');
 ```
 
 或者，
 
 ```js
-import { validator } from '@front-utils/rtfc-utils'
+import { validator } from '@financial-freedom/front-utils'
 
 validator.checkEmail('a.b@qq.com');
 ```
@@ -564,7 +564,7 @@ All
 
 ### Browser Support
 
-[浏览器兼容性](https://gitlab.jwell56.com/front-utils/rtfc-utils/blob/master/.browserslistrc)
+[浏览器兼容性](https://github.com/JSoon/front-utils/blob/master/.browserslistrc)
 
 ```browserslist
 # 完整格式请参考 https://github.com/browserslist/browserslist
@@ -574,4 +574,4 @@ ie >= 10
 
 ## Changelog
 
-[更新日志](https://gitlab.jwell56.com/front-utils/rtfc-utils/tags)
+[更新日志](https://github.com/JSoon/front-utils/tags)

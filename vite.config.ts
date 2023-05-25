@@ -9,8 +9,8 @@ export default defineConfig({
     target: 'es2015',
     lib: {
       entry: path.resolve(__dirname, 'src/lib/main.ts'),
-      name: 'rtfc_utils',
-      fileName: (format) => `rtfc_utils.${format}.js`,
+      name: 'utils',
+      fileName: (format) => `front_utils.${format}.js`,
       formats: ['es', 'umd'],
     },
     /**

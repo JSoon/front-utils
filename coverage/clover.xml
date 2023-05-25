@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684913396336" clover="3.2.0">
-  <project timestamp="1684913396337" name="All files">
+<coverage generated="1684978973805" clover="3.2.0">
+  <project timestamp="1684978973805" name="All files">
     <metrics statements="458" coveredstatements="458" conditionals="61" coveredconditionals="61" methods="46" coveredmethods="46" elements="565" coveredelements="565" complexity="0" loc="458" ncloc="458" packages="1" files="5" classes="5"/>
     <file name="enums.ts" path="/Users/soon/__rtwl__/repositories/rtfc-utils/src/lib/enums.ts">
       <metrics statements="55" coveredstatements="55" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
