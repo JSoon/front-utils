@@ -41,6 +41,7 @@
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
     - [getter](#getter)
+      - [getter.getFilename()](#gettergetfilename)
       - [getter.getFileExtension()](#gettergetfileextension)
       - [getter.getMimeByFileExtension()](#gettergetmimebyfileextension)
       - [getter.getFlatObjectArray()](#gettergetflatobjectarray)
@@ -423,6 +424,24 @@ formatter.formatThousandSeparator(123456789.23456, { maximumFractionDigits: 3, }
 ### getter
 
 获取函数
+
+#### getter.getFilename()
+- Type
+```js
+/**
+ * 从URI获取文件名
+ * @param filePath  文件路径
+ * @returns         文件名, 如: xxx.jpg
+ */
+function getFilename(filePath: string): string;
+```
+- Example
+```js
+getFilename(''); // ''
+getFilename('https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/weather/icons/a2.png'); // a2.png
+getFilename('file.name.with.dots.txt'); // file.name.with.dots.txt
+getFilename('file-with-no-extention'); // file-with-no-extention
+```
 
 #### getter.getFileExtension()
 - Type
