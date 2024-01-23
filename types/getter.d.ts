@@ -2,6 +2,12 @@
  * 获取函数
  */
 /**
+ * 从URI获取文件名
+ * @param filePath  文件路径
+ * @returns         文件名, 如: xxx.jpg
+ */
+export declare function getFilename(filePath: string): string;
+/**
  * 获取文件后缀名
  * @param filePath  文件路径
  * @returns         文件后缀名, 如: jpg, ppt, etc. 若未获取到, 则返回 undefined

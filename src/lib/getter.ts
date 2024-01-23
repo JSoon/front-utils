@@ -7,6 +7,15 @@ import { FileExtMimeMap, } from './enums';
 import { fileExtExp, } from './regexp';
 
 /**
+ * 从URI获取文件名
+ * @param filePath  文件路径
+ * @returns         文件名, 如: xxx.jpg
+ */
+export function getFilename (filePath: string) {
+  return filePath.split('/').pop();
+}
+
+/**
  * 获取文件后缀名
  * @param filePath  文件路径 
  * @returns         文件后缀名, 如: jpg, ppt, etc. 若未获取到, 则返回 undefined

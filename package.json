@@ -2,7 +2,7 @@
   "name": "@financial-freedom/front-utils",
   "description": "工具类函数: 与业务无关, 包括且不限于: 公共方法, 正则表达式等工具类API",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/front_utils.es.js",
   "types": "types/main.d.ts",
   "scripts": {

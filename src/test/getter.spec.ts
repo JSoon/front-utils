@@ -1,7 +1,19 @@
 import { suite, test, assert, } from 'vitest';
-import { getFileExtension,  getFlatObjectArray,  getMimeByFileExtension, } from '@/lib/getter';
+import { getFileExtension,  getFilename,  getFlatObjectArray,  getMimeByFileExtension, } from '@/lib/getter';
 
 suite('getter.ts', function () {
+  /**
+   * 获取文件名
+   */
+  suite('#getFilename()', function () {
+    test('Should be equal', function () {
+      assert.equal(getFilename(''), '');
+      assert.equal(getFilename('https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/weather/icons/a2.png'), 'a2.png');
+      assert.equal(getFilename('file.name.with.dots.txt'), 'file.name.with.dots.txt');
+      assert.equal(getFilename('file-with-no-extention'), 'file-with-no-extention');
+    });
+  });
+
   /**
    * 获取文件后缀名
    */

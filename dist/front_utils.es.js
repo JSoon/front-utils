@@ -7804,6 +7804,10 @@ var lodash = {
   }).call(commonjsGlobal);
 })(lodash, lodash.exports);
 
+function getFilename(filePath) {
+  return filePath.split("/").pop();
+}
+
 function getFileExtension(filePath) {
   var _a;
 
@@ -7835,6 +7839,7 @@ function getFlatObjectArray(nestedArray) {
 
 var getter = /* @__PURE__ */Object.freeze( /* @__PURE__ */Object.defineProperty({
   __proto__: null,
+  getFilename: getFilename,
   getFileExtension: getFileExtension,
   getMimeByFileExtension: getMimeByFileExtension,
   getFlatObjectArray: getFlatObjectArray
