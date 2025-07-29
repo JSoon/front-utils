@@ -3,6 +3,9 @@
  */
 
 import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+
+dayjs.extend(duration);
 
 /**
  * 日期时间格式化
@@ -48,4 +51,28 @@ export function formatThousandSeparator (number: number | string = 0, options: I
     maximumFractionDigits: 2, // 最大小数位
     ...options,
   });
+}
+
+/**
+ * 毫秒数格式化，最多显示到天
+ * @param ms 毫秒数
+ * @returns 格式化后的时间字符串，如：1分钟30秒
+ */
+export function formatMilliseconds (ms: number) {
+  const d = dayjs.duration(ms);
+  const seconds = d.seconds() ? `${d.seconds()}秒` : '';
+  const minutes = d.minutes() ? `${d.minutes()}分钟` : '';
+  const hours = d.hours() ? `${d.hours()}小时` : '';
+  const days = d.days() ? `${d.days()}天` : '';
+
+  // 小于1秒，显示毫秒
+  if (ms < 1000) return `${ms}毫秒`;
+  // 小于1分钟，显示秒
+  if (ms < 60 * 1000) return `${seconds}`;
+  // 小于1小时，显示分钟
+  if (ms < 60 * 60 * 1000) return `${minutes}${seconds}`;
+  // 小于1天，显示小时
+  if (ms < 24 * 60 * 60 * 1000) return `${hours}${minutes}${seconds}`;
+  // 其他情况，显示天
+  return `${days}${hours}${minutes}${seconds}`;
 }

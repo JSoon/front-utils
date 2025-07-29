@@ -40,6 +40,7 @@
     - [formatter](#formatter)
       - [formatter.formatDatetime()](#formatterformatdatetime)
       - [formatter.formatThousandSeparator()](#formatterformatthousandseparator)
+      - [formatter.formatMilliseconds()](#formatterformatmilliseconds)
     - [getter](#getter)
       - [getter.getFilename()](#gettergetfilename)
       - [getter.getFileExtension()](#gettergetfileextension)
@@ -419,6 +420,22 @@ function formatThousandSeparator(number?: number | string, options?: Intl.Number
 ```js
 formatter.formatThousandSeparator(123456789.01); // 123,456,789.01
 formatter.formatThousandSeparator(123456789.23456, { maximumFractionDigits: 3, }); // 123,456,789.235
+```
+
+#### formatter.formatMilliseconds()
+- Type
+```js
+/**
+ * 毫秒数格式化，最多显示到天
+ * @param ms 毫秒数
+ * @returns 格式化后的时间字符串，如：1分钟30秒
+ */
+function formatMilliseconds(ms: number): string;
+```
+- Example
+```js
+formatMilliseconds(500); // 500毫秒
+formatMilliseconds(2500); // 2秒
 ```
 
 ### getter

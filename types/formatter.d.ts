@@ -27,4 +27,10 @@ export declare function formatDatetime({ datetime, format, }: {
  * @see {@link https://stackoverflow.com/a/17663871/2630689}
  */
 export declare function formatThousandSeparator(number?: number | string, options?: Intl.NumberFormatOptions): string;
+/**
+ * 毫秒数格式化，最多显示到天
+ * @param ms 毫秒数
+ * @returns 格式化后的时间字符串，如：1分钟30秒
+ */
+export declare function formatMilliseconds(ms: number): string;
 //# sourceMappingURL=formatter.d.ts.map

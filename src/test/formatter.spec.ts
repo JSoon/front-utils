@@ -1,9 +1,9 @@
 import { suite, test, assert, } from 'vitest';
-import { formatDatetime, formatThousandSeparator, } from '@/lib/formatter';
+import { formatDatetime, formatMilliseconds, formatThousandSeparator, } from '@/lib/formatter';
 
 suite('formatter.ts', function () {
   /**
-   * 日期时间格式化测试
+   * 日期时间格式化
    */
   suite('#formatDatetime()', function () {
     test('Should be equal', function () {
@@ -51,6 +51,20 @@ suite('formatter.ts', function () {
       assert.equal(formatThousandSeparator(Number.MIN_SAFE_INTEGER - 1), 'Out of Range');
       assert.equal(formatThousandSeparator(Number.MAX_SAFE_INTEGER + 1), 'Out of Range');
       assert.equal(formatThousandSeparator('abc'), 'Invalid Number');
+    });
+  });
+
+  /**
+   * 毫秒数格式化
+   */
+  suite('#formatMilliseconds()', function () {
+    test('Should be equal', function () {
+      assert.equal(formatMilliseconds(0), '0毫秒');
+      assert.equal(formatMilliseconds(500), '500毫秒');
+      assert.equal(formatMilliseconds(2500), '2秒');
+      assert.equal(formatMilliseconds(65000), '1分钟5秒');
+      assert.equal(formatMilliseconds(3661000), '1小时1分钟1秒');
+      assert.equal(formatMilliseconds(723647627), '8天9小时47秒');
     });
   });
 });
