@@ -698,6 +698,7 @@ var __spreadValues = function __spreadValues(a, b) {
         datetime = _ref$datetime === void 0 ? new Date() : _ref$datetime,
         _ref$format = _ref.format,
         format = _ref$format === void 0 ? "YYYY-MM-DD HH:mm:ss" : _ref$format;
+    if (!datetime) return "";
     return dayjs(datetime).format(format);
   }
 

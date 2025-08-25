@@ -22,6 +22,7 @@ export function formatDatetime ({
   datetime?: dayjs.ConfigType
   format?: string
 }) {
+  if (!datetime) return '';
   return dayjs(datetime).format(format);
 }
 
