@@ -721,6 +721,7 @@ var __spreadValues = function __spreadValues(a, b) {
   }
 
   function formatMilliseconds(ms) {
+    if (!ms) return "";
     var d = dayjs.duration(ms);
     var seconds = d.seconds() ? "".concat(d.seconds(), "\u79D2") : "";
     var minutes = d.minutes() ? "".concat(d.minutes(), "\u5206\u949F") : "";

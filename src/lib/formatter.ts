@@ -59,6 +59,7 @@ export function formatThousandSeparator (number: number | string = 0, options: I
  * @returns 格式化后的时间字符串，如：1分钟30秒
  */
 export function formatMilliseconds (ms: number) {
+  if (!ms) return '';
   const d = dayjs.duration(ms);
   const seconds = d.seconds() ? `${d.seconds()}秒` : '';
   const minutes = d.minutes() ? `${d.minutes()}分钟` : '';
